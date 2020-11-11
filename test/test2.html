@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box {
+				width: 600px;
+				height: 600px;
+				background-color: red;
+			}
+			@media screen and (max-width: 1200px) {
+				.box {
+					width: 500px;
+					height: 500px;
+					background-color: darkblue;
+				}
+			}
+			@media screen and (max-width: 900px) {
+				.box {
+					width: 200px;
+					height: 200px;
+					background-color: yellow;
+				}
+			}
+			@media screen and (max-width: 700px) {
+				.box {
+					width: 50px;
+					height: 50px;
+					background-color: darkgray;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>
