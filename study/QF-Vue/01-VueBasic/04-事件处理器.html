@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件处理器</title>
+		<script src="./lib/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="handleClick">click1</button>
+			<button @click="handleClick($event)">click2</button>
+			<button @click="isShow = !isShow">click3</button>
+			<div v-show="isShow">111111</div>
+			
+			<ul @click.self="handleUl">
+				<li @click.stop="handleLi">1</li>
+				<li @click="handleLi">2</li>
+				<li @click.once="handleLi">3</li>
+			</ul>	
+			
+			<a @click.prevent="handleA" href="http://baidu.com">www</a>
+			
+			<input type="text" @keyup.enter="handleKeyup($event)">
+			
+		</div>
+		<script>
+			
+			new Vue({
+				el: '#app',
+				data: {
+					isShow: true
+				},
+				methods: {
+					handleClick() {
+						this.isShow = !this.isShow
+					},
+					handleUl() {
+						alert('click UL')
+					},
+					handleLi() {
+						alert('click LI')
+					},
+					handleA() {
+						alert('click a')
+					},
+					handleKeyup(ev) {
+						console.log(ev)
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

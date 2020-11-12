@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>面向对象三大特性</title>
+	</head>
+	<body>
+		<script>
+			
+			var p1 = {
+				name: 'zs',
+				age: 80,
+				address: 'shanghai'
+			}
+			var p2 = {}
+			
+			for(var key in p1) {
+				p2[key] = p1[key]
+			}
+			console.log(p2)
+			
+			
+			var obj = {
+				name: 'ls'
+			}
+			console.log(obj.toString()) // [Obejct, Object]
+			
+			var arr = [1,2,3]
+			console.log(arr.toString()) // 1,2,3
+			
+			var a = +'abc' //转化为number
+			console.log(typeof a)
+		</script>
+	</body>
+</html>

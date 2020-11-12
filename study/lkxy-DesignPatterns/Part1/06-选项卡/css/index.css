@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+#tab{
+    width: 500px;
+    height: 120px;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+}
+
+/*选项卡--头部*/
+#tab_header{
+    height: 29px;
+    line-height: 28px;
+    /*background-color: red;*/
+    overflow: hidden;
+}
+
+#tab_header ul{
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#tab_header ul li{
+    flex: 1;
+    text-align: center;
+    background-color: #e8e8e8;
+    border-bottom: 1px solid #cccccc;
+}
+
+#tab_header ul li.selected{
+    background-color: #ffffff;
+    border-bottom: none;
+
+    /*左右线条*/
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+}
+
+#tab_header ul li:nth-child(1){
+    border-left: none;
+}
+
+#tab_header ul li:nth-last-child{
+    border-right: none;
+}
+
+#tab_header ul li:hover{
+    cursor: pointer;
+    font-weight: bolder;
+    color: orangered;
+}
+/*选项卡--头部*/
+
+/*选项卡--主要内容*/
+#tab_content{
+
+}
+
+#tab_content .dom{
+   padding-top: 20px;
+   display: none;
+}
+
+#tab_content .dom ul li{
+    float: left;
+    width: 220px;
+    /*background-color: red;*/
+    text-align: center;
+    margin: 5px;
+}
+/*选项卡--主要内容*/

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单控件绑定</title>
+		<script src="./lib/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="value">
+			<textarea rows="10" cols="10" v-model="value">
+				
+			</textarea>
+			{{ value }}
+			<br>
+			<input type="checkbox" v-model="isChecked">记住用户名
+			<hr>
+			<p>你喜欢的运动有那些</p>
+			<input v-model="checkGroup" value="run" type="checkbox">跑步
+			<input v-model="checkGroup" value="ball" type="checkbox">篮球
+			<input v-model="checkGroup" value="play" type="checkbox">拳击
+			{{ checkGroup }}
+			<br>
+			<p>开发语言</p>
+			<input v-model="picked" value="php" type="radio">PHP
+			<input v-model="picked" value="js" type="radio">ECMAScript
+			<input v-model="picked" value="node" type="radio">NODE
+			{{ picked }}
+		</div>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					value: '',
+					isChecked: true,
+					checkGroup: [],
+					picked: ""
+				}
+			})
+		</script>
+	</body>
+</html>

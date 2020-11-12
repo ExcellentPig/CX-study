@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>指令</title>
+		<script src="./lib/vue.js"></script>
+		<style>
+			.red {
+				background-color: red;
+			}
+			.yellow {
+				background-color: yellow;
+			}
+			.a {
+				font-size: 40px;
+			}
+			.b {
+				color: darkgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div v-show="isShow">v-show</div>
+			<p v-if="isShow">v-if</p>
+			<p v-else>v-else</p>
+			
+			<div :class="isActive?'red': 'yellow'">我是动态绑定class</div>
+			<button @click="handleClick()">点击切换</button>
+			
+			<div :class="classObj">我是动态绑定class--对象写法</div>
+			
+			<div :class="classArr">我是动态绑定class--数组写法</div>
+			
+			
+			<div :style="'background:'+ (isActive ? 'red':'yellow')">动态绑定style-- 三目写法</div>
+			
+			<div :style="styleObj">动态绑定style-- 对象写法</div>
+			
+			<div :style="styleArr">我是动态绑定class--数组写法</div>
+			
+			
+			<button @click="handleCreated">click</button>
+			<div v-if="isCreated">动态创建和删除</div>
+			<div v-else>v-else 显示的内容</div>
+		</div>
+		<script>
+			
+			let vm = new Vue({
+				el: '#app',
+				data: {
+					isShow: false,
+					isActive: true,
+					classObj: {  //对象写法 不能动态添加状态
+						a: true,
+						b: true
+					},
+					classArr: ['a', 'b'],
+					styleObj: {
+						background: 'green',
+						fontSize: '50px'
+					},
+					styleArr: [],
+					isCreated: false
+				},
+				methods: {
+					handleClick() {
+						this.isActive = !this.isActive
+					},
+					handleCreated() {
+						this.isCreated = !this.isCreated
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

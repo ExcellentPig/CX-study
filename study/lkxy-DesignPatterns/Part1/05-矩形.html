@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>矩形</title>
+	</head>
+	<body>
+		<div id="main" style="position: relative;"></div>
+		<script>
+			
+			function Rect(options) {
+				this._init(options)
+			}
+			
+			Rect.prototype = {
+				_init: function(options) {
+					this.parentId = options.parentId
+					this.left = options.left || 100
+					this.top = options.top || 100
+					this.width = options.width || 100
+					this.height = options.height || 100
+					this.backgroundColor = options.backgroundColor || '#000'
+					this.borderRadius = options.borderRadius || 0
+					this.border = options.border || 'none'
+				},
+				render: function() {
+					var parentEle = document.getElementById(this.parentId)
+					var rectEle = document.createElement('div')
+					parentEle.appendChild(rectEle)
+					rectEle.style.position = 'absolute'
+					rectEle.style.left = this.left + 'px'
+					rectEle.style.top = this.top + 'px'
+					rectEle.style.width = this.width + 'px'
+					rectEle.style.height = this.height + 'px'
+					rectEle.style.backgroundColor = this.backgroundColor
+					rectEle.style.border = this.border
+					rectEle.style.borderRadius = this.borderRadius + 'px'
+				}
+			}
+			var r1 = new Rect({
+				parentId: 'main',
+				width: 600,
+				height: 300,
+				backgroundColor: 'yellow',
+				borderRadius: 50,
+				border: '10px solid #000'
+			})
+			r1.render()
+			console.log(r1)
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+
+			html,
+			body,
+			div {
+				width: 100%;
+				height: 100%;
+			}
+
+			#box {
+				background-color: #000;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script src="./js/Underscore-min.js"></script>
+		<script src="./js/Ball.js"></script>
+		<script>
+			// var box = document.getElementById('box')
+			// var ball = new Ball({
+			// 	parentId: 'box',
+			// 	left: 100,
+			// 	top: 200,
+			// 	bgColor: '#fff'
+			// })
+			// ball.render()
+
+			//-------------------------------------------------
+			var box = document.getElementById('box')
+			
+			var colorArr = ['red','green','yellow','orange','purple','pink']
+			
+			var ballArr = []
+			
+			box.onmousemove = function(ev) {
+				var ball = new Ball({
+					parentId: 'box',
+					left: ev.clientX,
+					top: ev.clientY,
+					bgColor: colorArr[_.random(0, colorArr.length-1)]
+				})
+				ballArr.push(ball)
+			}
+			
+			setInterval(function () {
+				for(var i=0;i<box.children.length;i++) {
+					box.children[i].remove()
+				}
+				for(var j=0;j<ballArr.length;j++) {
+					ballArr[j].render()
+					ballArr[j].update()
+				}
+			},50)
+			
+		</script>
+	</body>
+</html>

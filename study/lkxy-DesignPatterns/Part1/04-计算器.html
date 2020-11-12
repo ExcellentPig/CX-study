@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算器</title>
+	</head>
+	<body>
+		<script>
+			
+			// 面向过程
+			// function jia (a, b) {
+			// 	return a + b
+			// }
+			// function jian (a, b) {
+			// 	return a - b
+			// }
+			// function cheng (a, b) {
+			// 	return a * b
+			// }
+			// function chu (a, b) {
+			// 	return a / b
+			// }
+			// console.log(chu(cheng(jia(6, 6), 2), 3))
+			
+			//-------------------------------------------------
+			
+			//add , subtract , multiply and divide
+			// var Caculator = {
+			// 	result: 0,
+			// 	add: function(num) {
+			// 		this.result +=num;
+			// 	},				
+			// 	subtract: function(num) {
+			// 		this.result -=num;
+			// 	},
+			// 	multiply: function(num) {
+			// 		this.result *=num;
+			// 	},
+			// 	divide: function(num) {
+			// 		this.result /=num;
+			// 	},
+			// 	log: function() {
+			// 		console.log(this.result)
+			// 	}
+			// }
+			// Caculator.add(6)
+			// Caculator.add(6)
+			// Caculator.multiply(2)
+			// Caculator.divide(3)
+			// Caculator.log()
+			
+			//-------------------------------------------------
+			// 链式调用 return this
+			var Caculator = {
+				result: 0,
+				add: function(num) {
+					this.result +=num;
+					return this
+				},				
+				subtract: function(num) {
+					this.result -=num;
+					return this
+				},
+				multiply: function(num) {
+					this.result *=num;
+					return this
+				},
+				divide: function(num) {
+					this.result /=num;
+					return this
+				},
+				log: function() {
+					console.log(this.result)
+					return this;
+				},
+				clear: function() {
+					this.result = 0
+					return this
+				}
+			}
+			Caculator.add(6).add(6).multiply(2).divide(3).log()
+			Caculator.clear().add(2).log()
+			
+		</script>
+	</body>
+</html>

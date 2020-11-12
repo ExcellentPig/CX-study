@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>异常处理</title>
+	</head>
+	<body>
+		<script>
+			
+			// try{
+			// 	console.log(num)
+			// }catch(e){
+			// 	console.log(e)
+			// }
+			
+			function devide (a, b) {
+				if (0 === b) {
+					throw `分子不能为0`
+				}
+				return a / b
+			}
+			// console.log(devide(10,0))
+			
+			try{
+				console.log(devide(10,0)。)
+			}catch(e){
+				console.log(e)
+			}finally {
+				console.log('都会执行这里， 在这里释放资源')
+			}
+			
+		</script>
+	</body>
+</html>

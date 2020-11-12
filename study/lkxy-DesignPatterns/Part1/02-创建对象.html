@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>创建对象</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 字面量 复用性差
+			// var p1 = {
+			// 	name: 'zs',
+			// 	run: function () {
+			// 		console.log(this.name + ' running')
+			// 	}
+			// }
+			// p1.run()
+			
+			
+			// 构造函数 复用性差
+			// var p2 = new Object()
+			// p2.name = 'zs'
+			// p2.run = function () {
+			// 	console.log(this.name + ' running')
+			// }
+			
+			//简单工厂函数
+			
+			//自定义构造函数
+			function Person (name, age, sex) {
+				 this.name = name
+				 this.age = age
+				 this.sex = sex
+				 // return { // 返回对象 就是返回这个对象
+					//  age: 1000
+				 // }
+				 // return [1,2,3,4]
+			}
+			var p = new Person('zs', 18 ,'man')
+			console.log(p)
+			
+			function Dog (name, age, dogFriends) {
+				this.name = name;
+				this.age = age;
+				this.dogFriends = dogFriends;
+				this.eat = function (something) {
+					console.log(this.name + '-' + something)
+				}
+			}
+			
+			var d1 = new Dog('ls', 18, 'zs')
+			console.log(d1)
+			d1.eat('llll')
+			
+			function Dog1 (option) {
+				// this.name = option.name;
+				// this.age = option.age;
+				// this.dogFriends = option.dogFriends;
+				this._init(option)
+			}
+			
+			// Dog1.prototype.eat = function(something) {
+			// 	console.log(this.name + '-' + something)
+			// }
+			
+			Dog1.prototype = {
+				_init: function(option) {
+					this.name = option.name;
+					this.age = option.age;
+					this.dogFriends = option.dogFriends;
+				},
+				eat: function(something) {
+					console.log(this.name + '-' + something)
+				}
+			}
+			
+			var d2 = new Dog1({name: 'dada', age: 100, dogFriends: ['zz', 'ff']})
+			console.log(d2)
+			d2.eat('dd')
+			
+		</script>
+	</body>
+</html>
