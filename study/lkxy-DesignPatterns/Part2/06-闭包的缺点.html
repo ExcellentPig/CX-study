@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>闭包的缺点</title>
+	</head>
+	<body>
+		<script>
+			
+			function fn1() {
+				var arr = new Array[9999999]
+				function fn2() {
+					console.log(arr)
+				}
+				return fn2
+			} 
+			var f = fn1()
+			f()
+			f = null //释放内存
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>闭包的作用分析</title>
+	</head>
+	<body>
+		<script>
+			
+			function fn1() {
+				var num=10;
+				function fn2() {
+					num++
+					console.log(num)
+				}
+				function fn3() {
+					num--;
+					console.log(num)
+				}
+				return {
+					fn2: fn2,
+					fn3: fn3
+				}
+			}
+			
+			
+			var f = fn1()
+			f()
+			f = null;  // 释放闭包 将f 编程垃圾对象
+			
+		</script>
+	</body>
+</html>

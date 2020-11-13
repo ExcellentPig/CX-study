@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>组件</title>
+		<script src="./lib/vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<navbar></navbar>
+			<sidebar></sidebar>
+		</div>
+		<script>
+			Vue.component("navbar", {
+				template: `<div style="background: grey">
+						<button @click="handleBack()">返回</button>
+						navbar
+						<button>主页 {{ msg }}</button>
+						<child></child>
+						<navbarchild />
+					</div>`,
+				data(){
+					return {
+						msg: 'kkkk'
+					}
+				},
+				methods: {
+					handleBack() {
+						console.log('back')
+					}
+				},
+				components: {
+					navbarchild: {
+						template: `<div>navbarchild</div>`
+					}
+				}
+			})
+			
+			Vue.component("sidebar", {
+				template: `<div>
+					siderbar组件
+					<child></child>
+				</div>`
+			})
+			
+			Vue.component("child", {
+				template: `<div>child --- 全局定义</div>`
+			})
+			
+			new Vue({
+				el: "#box"
+			})
+		</script>
+	</body>
+</html>

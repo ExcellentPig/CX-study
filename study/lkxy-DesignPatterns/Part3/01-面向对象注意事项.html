@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>面向对象注意事项</title>
+	</head>
+	<body>
+		<script>
+			/*
+			 * 实例属性和实例方法 都是绑定在使用构造函数创建出来的对象p上，最终使用的时候也是使用对象p来进行访问
+			 * 
+			 * 静态属性和静态方法，绑定在函数身上的属性和方法
+			 */
+			
+			//var personCount = 0
+			
+			function Person(name, age, doFunc) {
+				// var this = new Object()
+				this.name = name;
+				this.age = age;  
+				this.doFunc = doFunc
+				// return this
+				//personCount++
+				
+				if(!this.personCount){
+					this.personCount = 0
+				}
+				this.personCount++
+			}
+			
+			// var p1 = new Person('zs',18,function() {
+			// 	console.log(1)
+			// })
+			// p1.doFunc()
+			
+			var p1 = new Person('zs',18,function() {
+				console.log(1)
+			})
+			
+			// console.log('total '+ personCount)
+			console.log('total '+ p1.personCount)
+			
+		</script>
+	</body>
+</html>

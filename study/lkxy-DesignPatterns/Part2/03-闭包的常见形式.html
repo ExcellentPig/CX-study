@@ -6,18 +6,30 @@
 	</head>
 	<body>
 		<script>
-			
-			function fn1() {
-				var num = 10
-				function fn2() {
-					num++
-					console.log(num)
-				}
-				return fn2()
-			}
-			var f = fn1()
-			f() //11
+			//将函数作为另一个函数的返回值
+			// function fn1() {
+			// 	var num = 10
+			// 	function fn2() {
+			// 		num++
+			// 		console.log(num)
+			// 	}
+			// 	return fn2()
+			// }
+			// var f = fn1()
+			// f() //11
 			// f() // error
+			
+			
+			//将函数的形参作为实参传递给另一个函数调用
+			function logMsgDelay (msg, time) {
+				setTimeout(() => {
+					// debugger
+					console.log(msg)
+				}, time)
+			}
+			logMsgDelay('khan', 1000)
+			
+			
 			
 		</script>
 	</body>
