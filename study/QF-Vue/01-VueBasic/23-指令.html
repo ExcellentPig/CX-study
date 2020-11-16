@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>指令</title>
+		<script src="./lib/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div v-hello="'red'">123</div>
+			<div v-hello="'yellow'">123</div>
+			<div v-hello="mycolor">123</div>
+		</div>
+		<script>
+			
+			Vue.directive("hello",{
+				inserted(el, bind) { // 指令的生命周期  插入  创建阶段
+					// console.log("当前节点插入到父节点中了")
+					// console.log(el) //元素节点
+					// el.style.fontSize = "100px"
+					
+					//console.log(bind) // 可以获取属性值
+					el.style.background = bind.value
+				},
+				update(el, bind) { //指令更新阶段
+					el.style.background = bind.value
+				}
+			})
+			
+			let vm = new Vue({
+				el: "#app",
+				data: {
+					mycolor: "red"
+				}
+			})
+			
+		</script>
+	</body>
+</html>

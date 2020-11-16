@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置对象类型判断</title>
+	</head>
+	<body>
+		<script>
+			
+			var obj = {'name': 'zs'}
+			var arr = [1,2,3]
+			
+			// console.log(typeof obj, typeof arr) // object
+			// console.log(obj.toString()) //[object Object]
+			// console.log(arr.toString()) // 1,2,3
+			
+			// console.log(arr.constructor) //Array
+			// console.log(arr.constructor.name)  //Array
+			// console.log(obj.constructor.name) // Object
+			
+			var date = new Date()
+			// console.log(typeof date) // object
+			// console.log(date.constructor.name) //Date
+			
+			//console.log(Object.prototype.toString.call(arr)) //[object =Array]
+			//console.log(Object.prototype.toString.call(date)) //[object Date]
+			
+			//-----------------------------------------
+			
+			// 自定义对象类型判断
+			
+			function Person(name, age) {
+				this.name = name
+				this.age = age 
+			}
+			function Dog(name, age) {
+				this.name = name
+				this.age = age 
+			}
+			function Cat(name, age) {
+				this.name = name
+				this.age = age 
+			}
+			var p = new Person('zs', 18)
+			var d = new Dog('dd', 1)
+			var c = new Cat('cc', 8)
+			
+			// console.log(typeof p, typeof d, typeof c) // object
+			// console.log(p.toString()) // [object Object]
+			// console.log(Object.prototype.toString.call(p)) //[object Object]
+			// console.log(p.constructor.name) // Person
+			
+			
+			//-----------------------------------------------------
+			
+			// 验证对象的类型 instanceof
+			console.log(p instanceof Person)  //true
+			console.log(p instanceof Object) // true
+			
+		</script>
+	</body>
+</html>

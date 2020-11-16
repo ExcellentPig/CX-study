@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>swiper</title>
+		<script src="./lib/vue.js"></script>
+		<link rel="stylesheet" href="./css/swiper.css">
+		<script src="./lib/swiper.js"></script>
+		<style>
+			.swiper-container {
+				width: 600px;
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<!-- <div class="swiper-container a">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" v-for="data in datalist">
+						{{ data }}
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div> -->
+			<swiper :key="datalist.length">
+				<div class="swiper-slide" v-for="data in datalist">
+					{{ data }}
+				</div>
+			</swiper>
+		</div>
+		<script>
+			// let vm = new Vue({
+			// 	el: "#box",
+			// 	data: {
+			// 		datalist: []
+			// 	},
+			// 	mounted() {
+			// 		setTimeout(()=>{
+			// 			this.datalist = [1111,2222,3333,4444,5555,666,7777]
+			// 			this.$nextTick(()=>{
+			// 				new Swiper('.a', {
+			// 					loop: true,
+			// 					pagination: {
+			// 						el: '.swiper-pagination'
+			// 					}
+			// 				})
+			// 			})
+			// 		},2000)
+			// 	},
+			// 	updated() {
+			// 		// new Swiper('.a', {  //不好
+			// 		// 	loop: true,
+			// 		// 	pagination: {
+			// 		// 		el: '.swiper-pagination'
+			// 		// 	}
+			// 		// })
+			// 	}
+			// })
+
+			//-------------------------------
+			// 封装组件
+			Vue.component("swiper", {
+				template: `
+					<div class="swiper-container a">
+						<div class="swiper-wrapper">
+							<slot></slot>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				`,
+				// updated() {
+				// 	new Swiper('.a', {
+				// 		loop: true,
+				// 		pagination: {
+				// 			el: '.swiper-pagination'
+				// 		}
+				// 	})
+				// }
+				mounted() {
+					// this.$nextTick(()=>{
+					// 	new Swiper('.a', {
+					// 		loop: true,
+					// 		pagination: {
+					// 			el: '.swiper-pagination'
+					// 		}
+					// 	})
+					// })
+					new Swiper('.a', {
+						loop: true,
+						pagination: {
+							el: '.swiper-pagination'
+						}
+					})
+				}
+			})
+			new Vue({
+				el: "#box",
+				data: {
+					datalist: []
+				},
+				mounted() {
+					setTimeout(() => {
+						this.datalist = [1111, 2222, 3333, 4444, 5555, 666, 7777]
+					}, 2000)
+				},
+			})
+		</script>
+	</body>
+</html>

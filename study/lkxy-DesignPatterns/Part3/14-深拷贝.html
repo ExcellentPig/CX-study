@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>深拷贝</title>
+	</head>
+	<body>
+		<script>
+			
+			var obj = {
+				name: 'zs',
+				age: 18,
+				friends: ['ls','ww'],
+				goodF: {
+					name: 'rose',
+					age: 16,
+					address: 'sh',
+					pets: [{name: 'pig'},{name: 'dog'}]
+				},
+				bir: new Date()
+			}
+			
+			function deepClone(fromObj, toObj) {
+				for (var key in fromObj) {
+					var fromValue = fromObj[key]
+					if (!isObj(fromValue)) {
+						toObj[key] = fromValue
+					} else {
+						var temObj = new fromValue.constructor
+						deepClone(fromValue, temObj)
+						toObj[key] = temObj
+					}
+				}
+			}
+			
+			
+			function isObj(obj) {
+				return obj instanceof Object;
+			}
+			
+			function isArray(obj) {
+				return Array.isArray(obj)
+				//return Object.prototype.toString.call(obj)
+			}
+			
+			var newObj = {}
+			deepClone(obj, newObj)
+			
+			obj.goodF.name = 'hahahah'
+			
+			console.log(newObj,obj)
+			
+		</script>
+	</body>
+</html>

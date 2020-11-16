@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过渡</title>
+		<script src="lib/vue.js"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet" type="text/css">
+		<style>
+			.kerwinfade-enter-active, .kerwinfade-leave-active {
+			  transition: all 1.5s;
+			}
+			.kerwinfade-enter, .kerwinfade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+			  opacity: 0;
+			  transform: translateX(100px);
+			}
+			
+			/*关键帧动画*/
+			.kerwinbounce-enter-active {
+			  animation: bounce-in .5s;
+			}
+			.kerwinbounce-leave-active {
+			  animation: bounce-in .5s reverse;
+			}
+			@keyframes bounce-in {
+			  0% {
+			    opacity: 0;
+			    transform: translateX(100px);
+			  }
+			
+			  100% {
+			    opacity: 1;
+			    transform: translateX(0px);
+			  }
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="isShow = !isShow">click</button>
+			<transition name="kerwinfade" mode="in-out">
+				<!-- 这里换做不同的标签 diff算法 -->
+				<!-- <p v-if="isShow">111</p>
+				<div v-else>222</div> -->
+				
+				<!-- 设置不同的key值 -->
+				<p v-if="isShow" key="1">111</p>
+				<p v-else key="2">333</p>
+			</transition>
+			<transition name="kerwinbounce">
+				<div v-show="isShow">222222</div>
+			</transition>
+		</div>
+		<script>
+			
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					isShow: false
+				}
+			})
+			
+		</script>
+	</body>
+</html>

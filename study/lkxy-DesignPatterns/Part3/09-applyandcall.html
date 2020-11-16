@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>apply and call</title>
+	</head>
+	<body>
+		<script>
+			
+			// console.log(new Object())
+			
+			// var demo1 = {
+			// 	name: 'zs',
+			// 	logSomething: function(params1, params2) {
+			// 		console.log(this.name, params1, params2)
+			// 	}
+			// }
+			// // demo1.logSomething('ls', 'ww')
+			
+			// var demo2 = {
+			// 	name: 'rose'
+			// }
+			
+			//call 
+			// demo1.logSomething.call(demo2, 'zs', 'ls')
+			
+			//apply
+			//demo1.logSomething.call(demo2, ['zs', 'ls'])
+			
+			
+			function Person () {
+				this.name = 'zs'
+				this.age = '18'
+			}
+			function Student () {
+				Person.call(this)
+				this.sex = 'man'
+			}
+			var s = new Student()
+			console.log(s)
+			
+		</script>
+	</body>
+</html>

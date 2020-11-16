@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置对象扩展方法</title>
+	</head>
+	<body>
+		<script>
+			
+			// var arr = [1,2,3]
+			// arr.run = function() {
+			// 	console.log('run')
+			// }
+			
+			
+			// Array.prototype.run = function() { //都存在了这个方法
+			// 	console.log('running')
+			// }
+			
+			// var arr2 = [30]
+			// arr2.run()
+			
+			
+			function MyArray() {}
+			MyArray.prototype = new Array()
+			MyArray.prototype.run = function () {
+				console.log('running')
+			}
+			var arr2 = new MyArray()
+			console.log(arr2)
+			
+			
+		</script>
+	</body>
+</html>

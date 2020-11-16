@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>完美继承</title>
+	</head>
+	<body>
+		<script>
+			
+			function Person(name, pets) {
+				this.name = name
+				this.pets = pets
+			}
+			Person.prototype.run = function() {
+				console.log('running')
+			}
+			
+			
+			function Student(num, name, pets) {
+				Person.call(this, name, pets) // 这里 需要放在最前面
+				this.num = num
+			}
+			
+			// var p = new Person()
+			// Student.prototype = p //实现继承
+			
+			// Student.prototype.constructor = Student //修复指针
+			
+			
+			//寄生式继承
+			function Temp() {}
+			Temp.prototype = Person.prototype
+			var stuPrototype = new Temp()
+			Student.prototype = stuPrototype
+			stuPrototype.constructor = Student
+			
+			
+			var stu = new Student('001','zs',['ll','zz'])
+			var stu2 = new Student('002','zs',['ll','zz'])
+			
+			stu.name = 'kkkkk'
+			console.log(stu.name,stu2.name) // 没有影响
+			
+			var pets = stu.pets
+			pets.push('ddddog')
+			console.log(stu.pets,stu2.pets)  // 都改了
+			
+			
+		</script>
+	</body>
+</html>

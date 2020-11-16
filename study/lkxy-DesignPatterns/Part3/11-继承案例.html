@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>继承案例</title>
+	</head>
+	<body>
+		<script>
+			
+			function Animal(name, age){
+				this.name = name
+				this.age = age
+			}
+			Animal.prototype.eat = function() {
+				console.log('eat')
+			}
+			Animal.prototype.run = function() {
+				console.log('run')
+			}
+			//--------------------------------
+			
+			function Person(job, name, age){
+				Animal.call(this,name,age)
+				this.job = job
+			}
+			
+			//继承
+			function Temp(){}
+			Temp.prototype = Animal.prototype
+			var personPrototype = new Temp()
+			personPrototype.constructor = Person
+			Person.prototype = personPrototype
+			
+			// 这里需要写在后面
+			Person.prototype.jump = function() {
+				console.log('jump')
+			}			
+					
+			//--------------------------------
+			function Student(className,job,name,age){
+				Person.call(this,job,name,age)
+				this.className = className
+			}
+			
+			function Temp1() {}
+			Temp1.prototype = Person.prototype
+			var studentPrototype = new Temp1()
+			studentPrototype.constructor = Student
+			Student.prototype = studentPrototype
+			
+			Person.prototype.study = function() {
+				console.log('study')
+			}
+			
+			var p = new Person('teacher', 'zs', 18)
+			console.log(p)
+			
+			var s = new Student('sss', 'aa', 'ls', 18)
+			console.log(s)
+			
+		</script>
+	</body>
+</html>

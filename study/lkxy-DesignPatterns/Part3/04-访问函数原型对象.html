@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>访问函数原型对象</title>
+	</head>
+	<body>
+		<script>
+			
+			function Person(name, age) {
+				this.name = name
+				this.age = age
+			}
+			//原型对象
+			Person.prototype.run  = function() {
+				console.log('running...')
+			}
+			
+			// Person.prototype = {
+				
+			// }
+			
+			//console.log(Person.prototype) // 方式一
+			
+			var p = new Person()
+			//console.log(p.__proto__to__) // 方式二 __proto__ 是非标准属性
+			
+			var newYX = {
+				'add': function() {
+					console.log('sum')
+				}
+			}
+			p.__proto__ = newYX 
+			console.log(p.__proto__) // add
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>isPrototypeOf and instanceOf</title>
+	</head>
+	<body>
+		<script>
+			
+			function Person() {
+				
+			}
+			
+			var p = new Person()
+			console.log(Person.prototype.isPrototypeOf(p)) //true
+			console.log(p.__proto__.isPrototypeOf(p)) // true
+			console.log(p instanceof Person) // true
+			
+			var obj = {
+				'name': 'zx'
+			}
+			Person.prototype = obj
+			console.log(Person.prototype.isPrototypeOf(p)) // false
+			console.log(p instanceof Person) // false
+			
+			var p2 = new Person()
+			console.log(Person.prototype.isPrototypeOf(p2)) // true 重新写了
+			console.log(p2 instanceof Person)  // true
+			
+			
+			
+		</script>
+	</body>
+</html>
+

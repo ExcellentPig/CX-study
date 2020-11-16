@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>原型链继承</title>
+	</head>
+	<body>
+		<script>
+			
+			// var arr = [1,2,3]
+			// console.log(arr.constructor.name) //Array
+			
+			// console.log(arr.__proto__.constructor.name) // Array
+			
+			// console.log(Array.__proto__.constructor.name) //Function
+			
+			// console.log(Function.__proto__.constructor.name) // Function
+			
+			// console.log(Function.prototype.__proto__.constructor.name) // Object
+			
+			// console.log(Object.__proto__.constructor.name) // Function
+			
+			// console.log(Array.prototype.__proto__.constructor.name) // Object
+			
+			
+			//-----------------------------
+			// function Person(name) {
+			// 	this.name = name
+			// 	this.toString = function() { // 1
+			// 		console.log('新增在对象上面的方法')
+			// 	}
+			// }
+			// Person.prototype.toString = function() { // 2
+			// 	console.log('新增在原型对象上面的方法')
+			// }
+			
+			// var p = new Person('zs')
+			// p.toString() 
+			
+			
+			//-------------------------------------
+			
+			function Person() {
+				this.name = 'zs'
+				this.pets = ['xx','dd','aa']
+			}
+			Person.prototype.run = function() {
+				console.log('running')
+			}
+			
+			
+			function Student() {
+				this.num = 'bibibibibib'
+			}
+			
+			var p = new Person()
+			Student.prototype = p //实现继承
+			
+			Student.prototype.constructor = Student //修复指针
+			
+			// Student.prototype = Person.prototype
+			//console.log(stu.constructor.name) // Person 有问题
+			var stu = new Student()
+			console.log(stu)
+			console.log(stu.num)
+			stu.run()
+			console.log(stu.name)
+			console.log(stu.constructor.name) // Student
+			
+			
+		</script>
+	</body>
+</html>

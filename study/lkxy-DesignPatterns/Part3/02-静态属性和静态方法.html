@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>静态属性和静态方法</title>
+	</head>
+	<body>
+		<script>
+			
+			function Person(name, age, doFunc) {
+				this.name = name
+				this.age = age
+				this.doFunc = doFunc
+				 
+				 // 静态属性
+				 if(!Person.personCount) {
+					 Person.personCount = 0
+				 }
+				 Person.personCount++
+				 
+			}
+			
+			// 创建静态方法
+			Person.printPersonCount = function () {
+				console.log('一共创建了 '+ Person.personCount)
+			}
+			
+			
+			var p1 = new Person('zs', 18, function() {
+				console.log('zs xxx')
+			})
+			var p2 = new Person('li', 24, function() {
+				console.log('ls xxx')
+			})
+			
+			// 输出
+			Person.printPersonCount()
+			
+		</script>
+	</body>
+</html>

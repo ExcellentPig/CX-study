@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浅拷贝</title>
+	</head>
+	<body>
+		<script>
+			
+			// var obj = {
+			// 	name: "zs",
+			// 	age: 18
+			// }
+			// var copyObj = {};
+			
+			// 1
+			// for(var key in obj) {
+			// 	copyObj[key] = obj[key]
+			// }
+			// obj.name = 'ks'
+			// console.log(copyObj, obj)
+			
+			
+			// 2
+			// Object.assign(copyObj,obj, { address: 'sh' })
+			// obj.name = 'ks'
+			// console.log(copyObj, obj)
+			
+			// 3
+			
+			var obj = {
+				name: "zs",
+				age: 18,
+				pets: ['kk', 'ss']
+			}
+			var copyObj = {};
+			Object.assign(copyObj,obj)
+			obj.pets.push('yyy')
+			console.log(copyObj, obj)
+			
+		</script>
+	</body>
+</html>

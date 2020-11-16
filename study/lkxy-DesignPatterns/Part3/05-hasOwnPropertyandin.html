@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>hasOwnProperty and in</title>
+	</head>
+	<body>
+		<script>
+			
+			function Person(name, age) {
+				this.name = name
+				this.age = age
+			}
+			
+			Person.prototype.address = 'bj';
+			
+			var p = new Person('zs', 12)
+			// console.log(name in p) // false  
+			// console.log(p.hasOwnProperty(name)) // false
+			
+			console.log('name' in p) // true
+			console.log('address' in p) // true
+			
+			console.log(p.hasOwnProperty('name')) // true
+			console.log(p.hasOwnProperty('address')) // false // 不会再原型上去找
+			
+		</script>
+	</body>
+</html>
