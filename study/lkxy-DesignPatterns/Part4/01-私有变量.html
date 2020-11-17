@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>私有变量</title>
+	</head>
+	<body>
+		<script>
+			function Caculator() {
+				var result = 0 // 私有变量
+				
+				//私有函数
+				function checkNum (num) {
+					var isNum = typeof num  === 'number'
+					if(!isNum) {
+						alert('不是数字')
+					}
+					return isNum
+				}
+				
+				this.add = function(num){
+					if(checkNum(result)){
+						result +=num
+					}
+					return this
+				};				
+				this.subtract = function(num) {
+					result -=num
+					return this
+				};
+				this.multily = function(num) {
+					result *= num
+					return this
+				};
+				this.divide = function(num) {
+					result /= num
+					return this
+				};
+				this.logResult = function() {
+					console.log(result)
+					return this
+				};
+				this.clear = function() {
+					result = 0
+					return this
+				}
+			}
+			var c = new Caculator()
+			c.add(30).subtract(3).logResult()
+			
+		</script>
+	</body>
+</html>

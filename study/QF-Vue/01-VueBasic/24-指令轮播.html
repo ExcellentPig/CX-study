@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>指令轮播</title>
+		<script src="./lib/vue.js"></script>
+		<link rel="stylesheet" href="./css/swiper.css">
+		<script src="./lib/swiper.js"></script>
+		<style>
+			.swiper-container {
+				width: 600px;
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div class="swiper-container a">
+				<div class="swiper-wrapper">
+					<div 
+					class="swiper-slide" 
+					v-for="data,index in list" 
+					:key = "index"
+					v-swipe="{
+						index: index,
+						length: list.length
+					}"
+					>
+						{{ data }}
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<script>
+			
+			
+			Vue.directive("swipe", {
+				inserted(el, bind) {
+					console.log(el)
+					console.log(bind.value)
+					if (bind.value.index === bind.value.length-1) {
+						new Swiper('.a', {
+							loop: true,
+							pagination: {
+								el: '.swiper-pagination'
+							}
+						})
+					}
+				}
+			})
+			
+			let vm = new Vue({
+				el: "#app",
+				data: {
+					list: []
+				},
+				mounted() {
+					setTimeout(()=>{
+						this.list = [1,2,3,4,5]
+					},2000)
+				}
+			})
+			
+		</script>
+	</body>
+</html>

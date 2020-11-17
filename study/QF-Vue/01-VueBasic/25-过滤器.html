@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器</title>
+		<script src="./lib/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="(data, index) in datalist" :key="data.id">
+					<h3>{{ data.nm }}</h3>
+					<!-- <img :src="changepath(data.img)" :alt="data.showInfo"> -->
+					<img :src="data.img | filterpath" :alt="data.showInfo">
+				</li>
+			</ul>
+		</div>
+		<script>
+			
+			Vue.filter("filterpath", (data)=>{
+				return data.replace('w.h','128.180')
+			})
+			
+			let vm = new Vue({
+				el: "#app",
+				data: {
+					datalist: []
+				},
+				mounted() {
+					axios.get("./lib/test1.json")
+						.then(res=>{
+							console.log(res.data)
+							this.datalist = res.data.movieList
+						})
+				},
+				methods: {
+					changepath(path) {
+						return path.replace('w.h','128.180')
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>
