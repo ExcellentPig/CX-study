@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>命令模式</title>
+	</head>
+	<body>
+		<script>
+			
+			var cook1 = {
+				name: 'wxe',
+				make: function(foodType) {
+					switch(foodType) {
+						case 'tudou':
+							console.log(this.name);
+							break;
+						case 'yangyu':
+							console.log(this.name);
+							break;
+						case 'qiez':
+							console.log(this.name);
+							break;
+						default:
+							console.log('不会')
+							break;
+					}
+				}
+			}
+			
+			var cook2 = {
+				name: 'wde',
+				make: function(foodType) {
+					switch(foodType) {
+						case 'tudou':
+							console.log(this.name,'🌶');
+							break;
+						case 'yangyu':
+							console.log(this.name,'白糖');
+							break;
+						case 'qiez':
+							console.log(this.name,'酱油');
+							break;
+						default:
+							console.log('不会')
+							break;
+					}
+				}
+			}
+			
+			var foodList = ['tudou', 'jidan', 'fanqie']
+			
+			//点餐
+			function MakeFoodCommand(cook, foodType) {
+				this.cook = cook
+				this.foodType = foodType
+			}
+			MakeFoodCommand.prototype.execute = function() {
+				this.cook.make(this.foodType)
+			}
+			
+			
+			var commands = []
+			for(var i=0;i<foodList.length;i++) {
+				var command = null;
+				if(i % 2 === 0) {
+					command = new MakeFoodCommand(cook1, foodList[i])
+				} else {
+					command = new MakeFoodCommand(cook2, foodList[i])
+				}
+				commands.push(command)
+			}
+			console.log(commands)
+			
+		</script>
+	</body>
+</html>

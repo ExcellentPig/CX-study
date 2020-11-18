@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>工厂设计模式</title>
+	</head>
+	<body>
+		<script>
+			
+			// 简单工厂设计模式
+			// function makeCoffee (dou, water) {
+			// 	var obj = new Object()
+			// 	obj.dou = dou
+			// 	obj.water = water 
+			// 	obj.bili = dou / water
+			// 	return obj;
+			// }
+			// var coffee = makeCoffee(1, 10);
+			// console.log(coffee)
+			
+			// 复杂的工厂设计模式
+			function FruitMaker() {
+				
+			}
+			FruitMaker.prototype.make = function(type, meta) {
+				if (typeof this[type] === 'function'){
+					var func = this[type]
+					func.prototype = FruitMaker.prototype
+					return new func(meta)
+				} else {
+					throw '很抱歉，工厂不能生产这个产品'
+				}
+			}
+			// 扩展
+			FruitMaker.prototype.extend = function(obj) {
+				for(var key in obj){
+					this[key] = obj[key]
+				}
+			}
+			
+			FruitMaker.prototype.extend({
+				'Apple': function(meta) {
+					console.log('制造了apple', meta)
+				},
+				'Pear': function(meta) {
+					console.log('制造了Pear', meta)
+				}
+			})
+			
+			// 实例化
+			var maker = new FruitMaker()
+			var appleObj = maker.make('Apple','苹果，水')
+			console.log(appleObj)
+			console.log(appleObj.constructor.name)
+			
+			var pearObj = maker.make('Pear','梨子，水')
+			console.log(pearObj)
+			console.log(pearObj.constructor.name)
+			
+			// var np = maker.make()
+			
+		</script>
+	</body>
+</html>

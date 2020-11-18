@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>模板模式</title>
+	</head>
+	<body>
+		<script>
+			
+			function Fruit() {}
+			Fruit.prototype.make = function() {
+				this.water()
+				this.cailiao()
+				this.jiaoban()
+				this.liangliang()
+			}
+			Fruit.prototype.water = function() {
+				console.log('烧好开水，倒开水')
+			}
+			Fruit.prototype.cailiao = function() {
+				throw new Error('必须由子类来重写该方法')
+			}
+			Fruit.prototype.jiaoban = function() {
+				console.log('充分搅拌')
+			}
+			Fruit.prototype.liangliang = function() {
+				console.log('凉一下')
+			}
+			
+			function Apple() {}
+			Apple.prototype = new Fruit()
+			Apple.prototype.cailiao = function() {
+				console.log('放入苹果')
+			}
+			var apple = new Apple();
+			console.log(apple)
+			apple.make()
+			
+		</script>
+	</body>
+</html>

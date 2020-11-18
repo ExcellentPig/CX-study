@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>观察者模式</title>
+	</head>
+	<body>
+		<script>
+			
+			/* 1、消息的发布者
+			 * 2、可以让别人订阅你的消息
+			 * 3、可以发布消息
+			 */
+			
+			// var lk = {
+			// 	// 用户群体
+			// 	targetActions: [],
+			// 	//添加用户
+			// 	addUser: function(target, action) {
+			// 		var obj = {
+			// 			target: target,
+			// 			action: action
+			// 		}
+			// 		this.targetActions.push(obj)
+			// 	},
+			// 	//发布消息
+			// 	publishMsg: function() {
+			// 		for(var i=0,len=this.targetActions.length;i<len;i++) {
+			// 			var obj = this.targetActions[i]
+			// 			var target = obj.target;
+			// 			var action = obj.action;
+			// 			action.call(target, '明天周末了')
+			// 		}
+			// 	}
+			// }
+			// function response(str) {
+			// 	console.log('已推送', this.name, `消息为${str}`)
+			// }
+			// var stu1 = { name: 'zs' }
+			// var stu2 = {name: 'ls'}
+			// lk.addUser(stu1, response)
+			// lk.addUser(stu2, response)
+			
+			// //开始广播
+			// lk.publishMsg()
+			
+			//-----------------------------------------------------------------------
+			
+			var lk = {
+				typeTargetAction: {},
+				addUser: function(type, target, action) {
+					if(typeof this.typeTargetAction[type] === 'undefined') {
+						this.typeTargetAction[type] = []
+					}
+					var obj = {
+						target: target,
+						action: action
+					}
+					this.typeTargetAction[type].push(obj)
+				},
+				publishMsg: function(type, msgContent) {
+					var typeTargetAction = this.typeTargetAction[type] || []
+					for(var i=0,len=typeTargetAction.length;i<len;i++) {
+						var obj = typeTargetAction[i]
+						var target = obj.target;
+						var action = obj.action;
+						action.call(target,msgContent)
+						
+					}
+				}
+			}
+			
+			var stu1 = { name: 'zs' }
+			var stu2 = {name: 'ls'}
+			
+			lk.addUser('h5',stu1, function(msgContent) {
+				console.log(msgContent, '已经推送给：', this.name)
+			})
+			
+			lk.publishMsg('h5', 'scool')
+			
+		</script>
+	</body>
+</html>

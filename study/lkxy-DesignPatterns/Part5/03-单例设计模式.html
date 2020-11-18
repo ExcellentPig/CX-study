@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>单例设计模式</title>
+	</head>
+	<body>
+		<script>
+			
+			// function Tool(){}
+			
+			// var t1 = new Tool()
+			// var t2 = new Tool()
+			// var t3 = new Tool()
+			// console.log(t1 === t2)  // false 
+			
+			// var instance = null  // 缺点 全局的 可以任意被修改
+			// function Tool() {
+			// 	if(instance){
+			// 		return instance
+			// 	}
+			// 	instance = this
+			// 	this.name = 'khan'
+			// 	this.intro = 'love rose'
+			// }
+			
+			// //实例化
+			// var t1 = new Tool()
+			// var t2 = new Tool()
+			// var t3 = new Tool()
+			// console.log(t1 === t2) // true
+			// console.log(t2 === t3) // true
+			
+			// 优化
+			// (function (w) {
+			// 	var instance = null
+			// 	function Tool() {
+			// 		if(instance){
+			// 			return instance
+			// 		}
+			// 		instance = this
+			// 		this.name = 'khan'
+			// 		this.intro = 'love rose'
+			// 	}
+			// 	w.Tool = Tool;
+			// })(window);
+			// // //实例化
+			// var t1 = new Tool()
+			// var t2 = new Tool()
+			// var t3 = new Tool()
+			// console.log(t1 === t2) // true
+			// console.log(t2 === t3) // true
+			
+			//----------------------------------------
+			
+			
+			// function Tool() {
+			// 	var instance = this;
+			// 	this.name = 'zs';
+			// 	this.age = 18
+				
+			// 	//惰性函数(这个函数只会被执行一次，后面直接调用)
+			// 	Tool = function() {
+			// 		return instance;
+			// 	}
+			// }
+			
+			// // var t1 = new Tool();
+			// // var t2 = new Tool()
+			// // console.log(t1 === t2);
+			
+			// var t1 = new Tool()
+			// Tool.prototype.run = function() {
+			// 	console.log('run')
+			// }
+			// t1.run()
+			
+			
+			function Tool() {
+				var instance = this;
+				
+				var oldPrototype = Tool.prototype
+				
+				this.name = 'zs';
+				this.age = 18
+				
+				//惰性函数(这个函数只会被执行一次，后面直接调用)
+				Tool = function() {
+					return instance;
+				}
+				Tool.prototype = oldPrototype
+				instance = new Tool()
+				instance.constructor = Tool
+				return instance
+			}
+			
+			var t1 = new Tool();
+			var t2 = new Tool();
+			console.log(t1 === t2); // true
+			
+			Tool.prototype.run = function() {
+				console.log('run')
+			}
+			t1.run()
+			
+		</script>
+	</body>
+</html>
