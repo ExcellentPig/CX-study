@@ -1,6 +1,9 @@
 <template>
   <div class="center">
-    center
+    <el-button type="danger" :loading="true">按钮</el-button>
+    <mt-badge size="small">30</mt-badge>
+    <mt-badge size="normal">10</mt-badge>
+    <mt-badge size="large">10</mt-badge>
   </div>
 </template>
 
