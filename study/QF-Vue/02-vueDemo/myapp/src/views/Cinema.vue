@@ -23,8 +23,10 @@ export default {
     // console.log(document.documentElement.clientHeight)
     this.mystyle.height = document.documentElement.clientHeight - 70 + 'px'
     // console.log(this.mystyle)
+    var id = localStorage.getItem('cityId')
+    console.log(id)
     this.$axios({
-      url: 'https://m.maizuo.com/gateway?cityId=110100&ticketFlag=1&k=4595405',
+      url: `https://m.maizuo.com/gateway?cityId=${id}&ticketFlag=1&k=4595405`,
       headers: {
         'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"15610855429195524981146"}',
         'X-Host': 'mall.film-ticket.cinema.list'

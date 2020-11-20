@@ -50,6 +50,11 @@ const routes = [
     component: () => import('@/views/Login.vue')
   },
   {
+    path: '/city',
+    name: 'City',
+    component: () => import('@/views/City.vue')
+  },
+  {
     path: '*',
     redirect: '/film'
   }
