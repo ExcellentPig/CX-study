@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS选择器</title>
+		<style>
+			p:first-of-type {
+				color: red;
+			}
+			p:last-of-type {
+				color: darkcyan;
+			}
+			p:nth-of-type(2) {
+				color: darkgreen;
+			}
+			p:nth-last-of-type(2) {
+				color: darkorange;
+			}
+			
+			
+			p:first-child {
+				font-size: 18px;
+			}
+			p:last-child {
+				font-size: 24px;
+			}
+			p:nth-child(2) {
+				font-size: 20px;
+			}
+			p:nth-last-child(2) {
+				font-size: 22px;
+			}
+			
+			p::selection { /* 选择的部分颜色 */
+				background-color: transparent;
+			}
+			
+			.span-box:not(p) { /* 非选择器 */
+				background-color: lightgrey;
+			}
+			:root { /* 根节点选择器 */
+				background-color: lightgreen;
+			}
+			
+			input[type="text"] {
+				width: 100px;
+			}
+			input[type="text"]:enabled {
+				border: 1px solid #000000;
+			}
+			input[type="text"]:disabled {
+				border: 1px solid red;
+			}
+			
+			#news1:target {
+				color: green;
+			}
+			#news2:target {
+				color: orangered;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="paragraphs">
+			<p>我是第一个p标签</p>
+			<p>我是第二个p标签</p>
+			<p>我是第三个p标签</p>
+			<p>我是第四个p标签</p>
+		</div>
+		<span class="span-box">我是span标签</span>
+		<input type="text">
+		<input type="text" disabled="">
+		<br>
+		<a href="#news1">点击我让news1变绿色</a>
+		<br>
+		<a href="#news2">点击我让news2变成橘红色</a>
+		<div id="news1">
+			我的id是news1
+		</div>
+		<div id="news2">
+			我的id是news2
+		</div>
+	</body>
+</html>
