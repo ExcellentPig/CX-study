@@ -16,6 +16,14 @@
 			
 			.div1 {
 				transform: translate(50%, 60px);
+				
+				/* transition-property: height;
+				transition-timing-function: linear;
+				transition-delay: 2s;
+				transition-duration: .5s; */
+				
+				transition: height .5s linear 2s;
+				
 			}
 			
 			.div2 {
@@ -28,6 +36,16 @@
 			
 			.div4 {
 				transform: skew(20deg);
+			}
+			
+			.div5 {
+				transform-origin: right bottom;
+				transform: rotate(60deg) translate(50px) scale(1.2);
+			}
+			
+			.div1:hover {
+				background-color: orangered;
+				height: 200px;
 			}
 			
 		</style>

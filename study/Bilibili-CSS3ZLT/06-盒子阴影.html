@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>盒子阴影</title>
+		<style>
+			div {
+				width: 150px;
+				height: 150px;
+				margin: 50px;
+				background-color: orangered;
+			}
+			
+			.left-shadow {
+				box-shadow: -20px 0 10px rgba(0,0,0,.5);
+			}
+			
+			.right-shadow {
+				box-shadow: 20px 0 10px rgba(0,0,0,.5);
+			}
+			
+			.bottom-shadow {
+				box-shadow: 0px 20px 10px rgba(0,0,0,.5);
+			}
+			
+			.top-shadow {
+				box-shadow: 0px -20px 10px rgba(0,0,0,.5);
+			}
+			
+			
+			.blur1 {
+				box-shadow: 10px 0px 0px 0px rgba(0,0,0,.5);
+			}
+			
+			.blur2 {
+				box-shadow: 10px 0px -20px 0px rgba(0,0,0,.5);
+			}
+			
+			.blur3 {
+				box-shadow: 10px 0px 20px 0px rgba(0,0,0,.8);
+			}
+			
+			.blur4 {
+				box-shadow: 10px 0px 50px 0px rgba(0,0,0,.8);
+			}
+			
+			.no-spread {
+				box-shadow: 0px 0px 20px 0px rgba(0,0,0,.5);
+			}
+			
+			.positive-spread {
+				box-shadow: 0px 0px 20px 20px rgba(0,0,0,.5);
+			}
+			
+			.negative-spread {
+				box-shadow: 0px 50px 20px -20px rgba(0,0,0,.5);
+			}
+			
+			.inset {
+				box-shadow: -20px 0 10px rgba(0,0,0,.5) inset;
+			}
+			
+			.step6 {
+				box-shadow: 20px -20px 10px 0px rgba(0,0,0,.5);
+			}
+			
+			.step7 {
+				box-shadow: 0px 17px 10px 10px rgba(0,0,0,.5);
+			}
+			
+			.step8 {
+				box-shadow: 0px 0px 10px 10px rgba(0,0,0,.5);
+			}
+			
+			.step9 {
+				box-shadow: 20px 20px 10px 0px rgba(0,0,0,.5) inset,
+							20px 20px 10px 0px lightcoral 
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="left-shadow">left-shadow</div>
+		<div class="right-shadow">right-shadow</div>
+		<div class="bottom-shadow">bottom-shadow</div>
+		<div class="top-shadow">top-shadow</div>
+		<div class="blur1">blur1</div>
+		<div class="blur2">blur2</div>
+		<div class="blur3">blur3</div>
+		<div class="blur4">blur4</div>
+		<div class="no-spread">no-spread</div>
+		<div class="positive-spread">positive-spread</div>
+		<div class="negative-spread">negative-spread</div>
+		<div class="inset">inset</div>
+		<div class="step6">step6</div>
+		<div class="step7">step7</div>
+		<div class="step8">step8</div>
+		<div class="step9">step9</div>
+	</body>
+</html>
