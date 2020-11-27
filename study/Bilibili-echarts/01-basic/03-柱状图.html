@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>柱状图</title>
+		<script src="./lib/echarts.min.js"></script>
+		<style>
+			#box {
+				width: 600px;
+				height: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script>
+			
+			var mCharts = echarts.init(document.querySelector('#box'))
+			var xDataArr = ['张三','李四','王五','罗六','蔡七','陈八']
+			var yDataArr1 = [70, 80, 90,100,60,55]
+			var yDataArr2 = [40, 50, 20,100,80,75]
+			var option = {
+				title: {
+					text: '三年二班成绩图',
+					textStyle: {
+						color: 'orangered'
+					},
+					borderWidth: 5,
+					borderColor: 'blue',
+					borderRadius: 5,
+					left: 100,
+					top: 10
+				},
+				tooltip: {
+					// trigger: 'item',
+					trigger: 'axis',
+					triggerOn: 'click',
+					// formatter: '{b}的成绩是{c}'
+					formatter: function(arg) {
+						console.log(arg)
+						return arg[0].name + '的分数是:'+ arg[0].data
+					}
+				},
+				toolbox: {
+					feature: {
+						// 保存图片 下载图标
+						saveAsImage: {},
+						// 数据视图
+						dataView: {},
+						// 重置
+						restore: {},
+						//区域缩放
+						dataZoom: {},
+						// 不同的图表类型切换
+						magicType: {
+							type: ['bar', 'line']
+						}
+					}
+				},
+				// xAxis: {
+				// 	type: 'category', // 类目轴
+				// 	data: xDataArr
+				// },
+				// yAxis: {
+				// 	type: 'value' // 数值轴
+				// },
+				yAxis: {
+					type: 'category', // 类目轴
+					data: xDataArr
+				},
+				legend: {
+					data: ['语文','数学']
+				},
+				xAxis: {
+					type: 'value' // 数值轴
+				},
+				series: [
+					{
+						name: '语文',
+						type: 'bar', // 图表类型
+						markPoint: {
+							data: [
+								{
+									type: 'max',
+									name: '最大值'
+								},
+								{
+									type: 'min',
+									name: '最小值'
+								}
+							]
+						},
+						markLine: {
+							data: [
+								{
+									type: 'average',
+									name: '平均值'
+								}
+							]
+						},
+						label: { 
+							show: true,
+							rotate: 60,
+							position: 'inside'
+						},
+						barWidth: '30%',
+						data: yDataArr1
+					},
+					{
+						name: '数学',
+						type: 'bar',
+						data: yDataArr2
+					}
+				]
+			}
+			mCharts.setOption(option)
+			
+		</script>
+	</body>
+</html>

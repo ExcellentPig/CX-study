@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>文本相关</title>
+		<style>
+			
+			.step1 {
+				margin: 50px;
+				width: 12em;
+				overflow: hidden;
+				border: 1px solid #000;
+				white-space: nowrap;
+			}
+			.ellipsis {
+				text-overflow: ellipsis;
+			}
+			.clip {
+				text-overflow: clip;
+			}
+			.userSet {
+				text-overflow: ">>"; /* 火狐支持 */
+			}
+			
+			
+			h1 {
+				color: white;
+				text-shadow: 2px 2px 4px #000;
+			}
+			.step2 {
+				font-size: 50px;
+				font-weight: bold;
+				letter-spacing: 2px;
+				color: transparent;
+				-webkit-text-stroke: 2px #45b823;
+				-moz-text-stroke: 2px #45b823;
+				text-stroke: 2px #45b823;
+			}
+			
+			.keep-all {
+				width: 9em;
+				border: 1px solid #000000;
+				word-break: keep-all;
+			}
+			
+				
+			.break-all {
+				width: 9em;
+				border: 1px solid #000000;
+				word-break: break-all;
+			}
+			
+			.step5 {
+				width: 11em;
+				border: 1px solid #000000;
+				word-wrap: break-word;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="step1 ellipsis">
+			在这个div中，超出的部分会显示省略号
+		</div>
+		<div class="step1 clip">
+			在这个div中，超出的部分被直接截断
+		</div>
+		<div class="step1 userSet">
+			在这个div中，超出的部分会隐藏显示“>>”, 仅在火狐浏览器中有效
+		</div>
+		<h1>这是一个h1</h1>
+		<p class="step2">镂空文字效果</p>
+		<p class="keep-all">this is a p for- keep althis is a p for- keep allthis is a p for- keep alll</p>
+		<div class="break-all">his is a p for- keep althis is a p for- keep allthis is a p for- keep alll</div>
+		<div class="step5">this is a p for keep al this 
+		is a p for keep al this is a p for keep althis is a]\
+		 p for keep al this is a p for keep al this is a p for keep althis is a p for keep al this is a p for keep al this is a p for keep al</div>
+	</body>
+</html>
