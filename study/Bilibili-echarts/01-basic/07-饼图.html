@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>饼图</title>
+		<script src="./lib/echarts.min.js"></script>
+	</head>
+	<body>
+		<div id="box" style="width: 600px;height: 400px;"></div>
+		<script>
+			
+			var mCharts = echarts.init(document.querySelector('#box'))
+			var pieData = [
+			  {
+			    name: '淘宝',
+			    value: 11231
+			  },
+			  {
+			    name: '京东',
+			    value: 22673
+			  },
+			  {
+			    name: '唯品会',
+			    value: 6123
+			  },
+			  {
+			    name: '1号店',
+			    value: 8989
+			  },
+			  {
+			    name: '聚美优品',
+			    value: 6700
+			  }
+			]
+			var option = { 
+				series: [
+					{
+						type: 'pie',
+						data: pieData
+					}
+				]
+			}
+			mCharts.setOption(option)
+			
+		</script>
+	</body>
+</html>

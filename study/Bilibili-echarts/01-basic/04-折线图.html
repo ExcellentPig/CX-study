@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>04-折线图</title>
+		<script src="./lib/echarts.min.js"></script>
+	</head>
+	<body>
+		<div id="box" style="width: 600px;height: 400px;"></div>
+		<script>
+			
+			var myCharts = echarts.init(document.querySelector('div'))
+			var xDataArr = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+			var yDataArr = [3000,2800,900,1000,800,700,1400,1300,900,1000,800,600]
+			var yDataArr2 = [2000,2800,1900,500,900,1700,2400,300,1900,1500,1800,200]
+			
+			var option = {
+				xAxis: {
+					type: 'category',
+					data: xDataArr,
+					//紧挨边缘
+					boundaryGap: false
+				},
+				yAxis: {
+					type: 'value',
+					scale: true //缩放
+				},
+				series: [
+					{
+						name: 'xx销量',
+						data: yDataArr,
+						type: 'line',
+						markPoint: { 
+							data: [
+								{
+									type: 'max'
+								},
+								{
+									type: 'min'
+								}
+							]
+						},
+						markLine: {
+							data: [
+								{
+									type: 'average'
+								}
+							]
+						},
+						markArea: { // 区间
+							data: [
+								[
+									{
+										xAxis: '1月'
+									},
+									{
+										xAxis: '2月'
+									}
+								],
+								[
+									{
+										xAxis: '7月'
+									},
+									{
+										xAxis: '8月'
+									}
+								]
+							]
+						},
+						// 平滑曲线
+						smooth: true,
+						lineStyle: { // 线条样式
+							color: 'green',
+							type: 'dashed'
+						},
+						// 填充
+						areaStyle: {
+							color: 'pink'
+						},
+						stack: 'all' // 堆叠图
+					},
+					{
+						type: 'line',
+						data: yDataArr2,
+						stack: 'all',
+						areaStyle: {}
+						
+					}
+				]
+			}
+			myCharts.setOption(option)
+			
+		</script>
+	</body>
+</html>

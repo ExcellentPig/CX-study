@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>特殊用法</title>
+		<style type="text/css">
+			#div1,
+			#div2 {
+				width: 400px;
+				height: 400px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin: -200px;
+				text-align: center;
+				opacity: 0;
+				transition: .8s;
+			}
+			
+			#div1 {
+				background-color: orangered;
+				opacity: 1;
+			}
+			#div2 {
+				background-color: green;
+			}
+			
+			#div1:target {
+				opacity: 1;
+			}
+			#div2:target {
+				opacity: 1;
+			}
+			
+			#btn-wrap {
+				text-align: center;
+			}
+			#btn-wrap input {
+				display: none;
+			}
+			
+			.btn {
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				background-color: #f9f8f6;
+				border-radius: 50%;
+				box-shadow: 0 5px 10px 0px #333,
+							0px 15px 20px 0px #ccc;
+				cursor: pointer;
+				position: relative;
+			}
+			.btn::before {
+				content: "";
+				position: absolute;
+				width: 22.7px;
+				height: 22.7px;
+				border-radius: 50%;
+				display: inline-block;
+				background-color: #ff9900;
+				box-shadow: 0 0 0 5px #ccc,
+							inset 0 0 0 14px #F9F8F6;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+			}
+			.btn::after {
+				content: "";
+				position: absolute;
+				display: inline-block;
+				left: 50%;
+				top: 25%;
+				transform: translate(-50%, -50%);
+				width: 4px;
+				height: 14px;
+				background-color: #ccc;
+				box-shadow: 0 0 0 2.5px #f9f8f6;
+			}
+			#input1:checked ~ .btn {
+				box-shadow: 0 2px 5px 0px gray, 0 15px 20px 0 transparent;
+			}
+			
+			#input1:checked ~ .btn::before {
+				box-shadow: inset 0 0 0 5px #FF9900, inset 0 0 0 14px #f9f8f6;
+			}
+			
+			#input1:checked ~ .btn::after {
+				height: 12px;
+				top: 35%;
+				background-color: #FF9900;
+			}
+			
+			.btn,
+			.btn::before,
+			.btn::after {
+				transition: .8s;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<a href="#div1">点击我链接到div1</a>
+		<a href="#div2">点击我链接到div2</a>
+		<div id="div1">我是div1</div>
+		<div id="div2">我是div2</div>
+		
+		
+		<div id="btn-wrap">
+			<input type="checkbox" id="input1">
+			<label class="btn" for="input1"></label>
+		</div>
+		
+	</body>
+</html>
