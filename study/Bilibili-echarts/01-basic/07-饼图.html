@@ -10,6 +10,7 @@
 		<script>
 			
 			var mCharts = echarts.init(document.querySelector('#box'))
+		
 			var pieData = [
 			  {
 			    name: '淘宝',
@@ -36,7 +37,28 @@
 				series: [
 					{
 						type: 'pie',
-						data: pieData
+						data: pieData,
+						label: { //文字显示
+ 							show: true, // 默认为true
+							// 文字显示内容设置
+							// formatter: 'pei',  
+							formatter: function (arg) {
+								console.log(arg)
+								return arg.name + '平台' + arg.value + '元\n' + arg.percent + '%'
+							}
+						},
+						// 半径
+						// radius: 200
+						// 百分比参照容器
+						//radius: '20%',
+						// 外圆 和 内圆半径
+						// radius: ['50%', '75%'],
+						// 南丁格尔图
+						roseType: 'radius',
+						//  选中效果
+						// selectedMode: 'single'
+						selectedMode: 'multiple',
+						selectedOffset: 30 // 偏移距离
 					}
 				]
 			}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>主题</title>
+		<script src="./lib/echarts.min.js"></script>
+	</head>
+	<body>
+		<div id="box" style="width: 600px;height: 400px;"></div>
+		<script>
+			
+			// light dark 内置主题
+			var mCharts = echarts.init(document.querySelector('#box'), 'dark')
+			var xDataArr = ['zs','ls','ww']
+			var yDataArr = [40,20,100]
+			
+			var option = {
+				xAxis: {
+					type: 'category',
+					data: xDataArr
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: {
+					type: 'bar',
+					data: yDataArr,
+					itemStyle: {
+						// color: {
+						// 	type: 'liner', //线性渐变
+						// 	x: 0,
+						// 	y: 0,
+						// 	x2: 0,
+						// 	y2: 1,
+						// 	colorStops: [
+						// 		{
+						// 			offset: 0,
+						// 			color: 'red'
+						// 		},
+						// 		{
+						// 			offset: 1,
+						// 			color: 'blue'
+						// 		}
+						// 	]
+						// }
+						color: {
+							type: 'radial', //径xiang渐变
+							x:0.5,
+							y:0.5,
+							r: 0.5,
+							colorStops: [
+								{
+									offset: 0,
+									color: 'red'
+								},
+								{
+									offset: 1,
+									color: 'blue'
+								}
+							]
+						}
+					}
+				}
+			}
+			mCharts.setOption(option)
+			
+		</script>
+	</body>
+</html>

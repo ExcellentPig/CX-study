@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>map</title>
+		<script src="./lib/echarts.min.js"></script>
+		<script src="./lib/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="box" style="width: 600px;height: 400px; border: 1px solid #000;"></div>
+		<script>
+			
+			var mCharts = echarts.init(document.querySelector('#box'))
+			
+			$.get('./json/map/anhui.json', function(ret) {
+				echarts.registerMap('anhiMap', ret)
+				var option = {
+					geo: {
+						type: 'map',
+						map: 'anhiMap',
+						label: {
+							show: true
+						},
+						zoom: 1.2,
+						center: [116, 31] // 在ret中有坐标数据
+					}
+				}
+				mCharts.setOption(option)
+			})
+			
+		</script>
+	</body>
+</html>

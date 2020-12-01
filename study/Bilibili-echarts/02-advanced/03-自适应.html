@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>主题</title>
+		<script src="./lib/echarts.min.js"></script>
+	</head>
+	<body>
+		<div id="box" style="height: 400px; border: 1px solid red;"></div>
+		<script>
+			
+			// light dark 内置主题
+			var mCharts = echarts.init(document.querySelector('#box'))
+			var xDataArr = ['zs','ls','ww']
+			var yDataArr = [40,20,100]
+			
+			var option = {
+				xAxis: {
+					type: 'category',
+					data: xDataArr
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: {
+					type: 'bar',
+					data: yDataArr
+				}
+			}
+			mCharts.setOption(option)
+			
+			// 监听window窗口大小
+			// window.onresize = function() {
+			// 	// 调用 echarts resize
+			// 	mCharts.resize()
+			// }
+			
+			window.onresize = mCharts.resize
+			
+			
+		</script>
+	</body>
+</html>

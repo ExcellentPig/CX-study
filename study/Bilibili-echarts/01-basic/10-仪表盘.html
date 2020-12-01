@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>仪表盘</title>
+		<script src="./lib/echarts.min.js"></script>
+	</head>
+	<body>
+		<div id="box" style="width: 600px;height: 400px;"></div>
+		<script>
+			
+			var mCharts = echarts.init(document.querySelector('#box'))
+			var option = {
+				series: [
+					{
+						type: 'gauge',
+						data: [
+							// 每一个对象代表一个指针
+							{
+								value: 97,
+								itemStyle: { // 控制指针样式
+									color: 'pink'
+								}
+							},
+							{
+								value: 88,
+								itemStyle: {
+									color: 'green'
+								}
+							},
+							{
+								value: 50
+							}
+						],
+						// min max 设置范围
+						min: 50
+					}
+				]
+			}
+			mCharts.setOption(option)
+			
+		</script>
+	</body>
+</html>

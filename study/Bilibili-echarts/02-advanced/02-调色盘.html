@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>调色盘</title>
+		<script src="./lib/echarts.min.js"></script>
+	</head>
+	<body>
+		<div id="box" style="width: 600px;height: 400px;"></div>
+		<script>
+			var mCharts = echarts.init(document.querySelector('#box'))
+
+			var option = {
+				// color: [ // 全局
+				// 	'red',
+				// 	'orange',
+				// 	'yellow',
+				// 	'pink',
+				// 	'blue'
+				// ],
+				title: {
+					text: 'pie图',
+					textStyle: {
+						color: 'blue'
+					},
+				},
+				series: [{
+					type: 'pie',
+					data: [{
+							name: '淘宝',
+							value: 11231,
+							itemStyle: {
+								color: 'yellow'
+							},
+							label: {
+								color: 'green'
+							},
+							emphasis: {
+								itemStyle: {
+									color: 'pink'
+								},
+								label: {
+									color: 'black'
+								},
+							}
+						},
+						{
+							name: '京东',
+							value: 22673
+						},
+						{
+							name: '唯品会',
+							value: 6123
+						},
+						{
+							name: '1号店',
+							value: 8989
+						},
+						{
+							name: '聚美优品',
+							value: 6700
+						}
+					],
+					// color: [  // 局部
+					// 	'grey',
+					// 	'orange',
+					// 	'yellow',
+					// 	'pink',
+					// 	'blue'
+					// ],
+				}]
+			}
+			mCharts.setOption(option)
+		</script>
+	</body>
+</html>
