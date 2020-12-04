@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>动画</title>
+		<script src="./lib/echarts.min.js"></script>
+		<script src="./lib/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="box" style="width: 600px;height: 400px;"></div>
+		<script>
+			var mCharts = echarts.init(document.querySelector('#box'))
+			mCharts.showLoading() // 加载动画
+			$.get('./data/test_data.json', function(ret) {
+				console.log(ret)
+				mCharts.hideLoading()
+				var axisData = []
+				
+				for(var i=0;i<ret.length;i++) {
+					var height = ret[i].height
+					var weight = ret[i].weight
+					var newArr = [height, weight]
+					axisData.push(newArr)
+				}
+				// console.log(axisData)
+				
+				var option = {
+					xAxis: {
+						type: 'value',
+						scale: true
+					},
+					yAxis: {
+						type: 'value',
+						scale: true
+					},
+					series: [
+						{
+							// type: 'scatter',
+							type: 'effectScatter', // 涟漪动画
+							showEffectOn: 'emphasis', // 控制 涟漪产生时间 render emphasis
+							rippleEffect: { // 控制涟漪范围
+								// scale:10
+								scale: 10
+							},
+							data: axisData,
+							// 散点大小
+							// symbolSize: 20
+							symbolSize: function (arg) {
+								// console.log(arg)
+								var height = arg[0] / 100 // 厘米
+								var weight = arg[1]
+								// BMI计算 身高体重标准计算公式
+								var bmi = weight / (height * height)
+								if(bmi > 28) {
+									return 20
+								}
+								return 5
+							},
+							itemStyle: {
+								color: function (arg) {
+									var height = arg.data[0] / 100 
+									var weight = arg.data[1]
+									var bmi = weight / (height * height)
+									if(bmi > 28) {
+										return 'red'
+									}
+									return 'green'
+								}
+							}
+						}
+					]
+				}
+				mCharts.setOption(option)
+			})
+			
+			
+		</script>
+	</body>
+</html>

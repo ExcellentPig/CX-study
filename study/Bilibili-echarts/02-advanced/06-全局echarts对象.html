@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全局echarts对象</title>
+		<script src="./lib/echarts.min.js"></script>
+		<script src="./lib/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="box" style="width: 600px;height: 400px;"></div>
+		<div id="box2" style="width: 600px;height: 400px;"></div>
+		<script>
+			// light dark 内置主题
+			var mCharts = echarts.init(document.querySelector('#box'), 'light')
+			var xDataArr = ['zs', 'ls', 'ww']
+			var yDataArr = [40, 20, 100]
+
+			var option = {
+				toolbox: {
+					feature: {
+						saveAsImage: {}
+					}
+				},
+				xAxis: {
+					type: 'category',
+					data: xDataArr
+				},
+				yAxis: {
+					type: 'value'
+				}, 
+				series: {
+					type: 'bar',
+					data: yDataArr
+				}
+			}
+			mCharts.setOption(option)
+			
+			
+			var mCharts2 = echarts.init(document.querySelector('#box2'))
+			$.get('./json/map/china.json', function(ret) {
+				echarts.registerMap('china', ret)
+				var option2 = {
+					geo: {
+						type: 'map',
+						map: 'china'
+					}
+				}
+				mCharts2.setOption(option2)
+				echarts.connect([mCharts, mCharts2])  // 下载图片时 拼接起来
+			})
+		</script>
+	</body>
+</html>

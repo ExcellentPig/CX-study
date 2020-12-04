@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>增量动画</title>
+		<script src="./lib/echarts.min.js"></script>
+	</head>
+	<body>
+		<div id="box" style="width: 600px;height: 400px;"></div>
+		<button id="modify">修改数据</button>
+		<button id="addData">增加数据</button>
+		<script>
+			var mCharts = echarts.init(document.querySelector('#box'))
+			var xDataArr = ['zs', 'ls', 'ww']
+			var yDataArr = [40, 20, 100]
+
+			var option = {
+				animation: true,  // 动画效果 默认为 true
+				// animationDuration: 7000, // ms
+				animationDuration: function(arg) {
+					// console.log(arg)  // 0 1 2 对应每个元素
+					return 2000 * arg
+				},
+				animationEasing: 'bounceOut', //缓动动画  liner bounceOut
+				//动画阈值 超过就没动画
+				animationThreshold: 3,
+				xAxis: {
+					type: 'category',
+					data: xDataArr
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: {
+					type: 'bar',
+					data: yDataArr
+				}
+			}
+			mCharts.setOption(option)
+
+			var btnModify = document.querySelector('#modify')
+			btnModify.onclick = function() {
+				var newYDataArr = [10, 20, 30]
+				var option = {
+					series: {
+						data: newYDataArr
+					}
+				}
+				mCharts.setOption(option) // 可以设置多次 是整合关系而不是覆盖 只需要考虑变化的部分就行
+			}
+			
+			var addData = document.querySelector('#addData')
+			addData.onclick = function() {
+				xDataArr.push('xm')
+				yDataArr.push(100)
+				var option = {
+					xAxis: {
+						data: xDataArr
+					},
+					series: {
+						data: yDataArr
+					}
+				}
+				mCharts.setOption(option)
+			}
+			
+			
+		</script>
+	</body>
+</html>
