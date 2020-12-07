@@ -135,3 +135,26 @@ let newObj = deepClone(obj);
 newObj.c.m = 100;
 console.log(obj);
 console.log(newObj)
+
+//----------------------------------
+
+// 深拷贝
+
+function clone(source){
+    var result;
+    if(Object.prototype.toString.call(source)==='[object Object]'){
+        result = {};
+    }else if(Object.prototype.toString.call(source)==='[object Array]'){
+        result = []
+    }else{
+        return;
+    }
+    for(var attr in source){
+        if(Object.prototype.toString.call(source[attr])==='[object Array]' || Object.prototype.toString.call(source[attr])==='[object Object]'){
+            result[attr] = clone(source[attr])
+        }else{
+            result[attr] = source[attr];
+        }
+    }
+    return result;
+}
