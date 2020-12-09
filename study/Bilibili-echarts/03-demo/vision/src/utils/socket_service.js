@@ -3,7 +3,7 @@ export default class SocketService {
    * 单例
    */
   static instance = null
-  static get Instance() {
+  static get Instance () {
     if (!this.instance) {
       this.instance = new SocketService()
     }
@@ -26,7 +26,7 @@ export default class SocketService {
   connectRetryCount = 0
 
   //  定义连接服务器的方法
-  connect() {
+  connect () {
     // 连接服务器
     if (!window.WebSocket) {
       return console.log('您的浏览器不支持WebSocket')
@@ -71,6 +71,7 @@ export default class SocketService {
       }
     }
   }
+
   // 回调函数的注册
   registerCallBack (socketType, callBack) {
     this.callBackMapping[socketType] = callBack

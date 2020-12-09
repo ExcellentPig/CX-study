@@ -41,7 +41,7 @@ export default {
       action: 'getData',
       socketType: 'hotData',
       chartName: 'hotproduct',
-      value:''
+      value: ''
     })
     window.addEventListener('resize', this.screenAdapter)
     this.screenAdapter()

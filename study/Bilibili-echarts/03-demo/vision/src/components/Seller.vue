@@ -105,7 +105,7 @@ export default {
         this.startInterval()
       })
     },
-    getData (ret) { 
+    getData (ret) {
       this.allData = ret
       // 排序
       this.allData.sort((a, b) => {

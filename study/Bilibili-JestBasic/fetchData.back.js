@@ -35,7 +35,7 @@ test('fetchTwoData测试', () => {
 // })
 
 test('fetchThrow测试', () => { // 异常情况  
-	expect.assertions(1) //断言 必须执行一次 expect
+	expect.assertions(1) // 必须执行一次 expect
 	return fetchThrow()
 		.catch(e => {
 			//console.log(e.toString());

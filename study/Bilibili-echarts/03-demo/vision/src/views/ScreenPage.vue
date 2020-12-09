@@ -87,7 +87,7 @@ export default {
     this.$socket.registerCallBack('fullScreen', this.recvData)
     this.$socket.registerCallBack('themeChange', this.recvThemeChange)
   },
-  destroyed () {
+  unmounted () {
     this.$socket.unRegisterCallBack('fullScreen')
     this.$socket.unRegisterCallBack('themeChange')
   },
