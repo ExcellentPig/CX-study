@@ -19,4 +19,15 @@ router.post('/search/addhistoryaction', controllers.search.index.addHistoryActio
 // 搜索相关的接口---获取热门和历史搜索数据
 router.get('/search/indexaction', controllers.search.index.indexAction)
 
+// 搜索相关的接口---清除对应openid的历史记录
+router.post('/search/clearHistoryAction', controllers.search.index.clearHistoryAction)
+
+// 搜索相关的接口---进行实时搜索提示 同时获取商品数据
+router.get('/search/helperAction', controllers.search.index.helperAction)
+
+
+// 详情页-- 拿到对应id的商品数据
+router.get('/goods/detailAction', controllers.goods.index.detailAction)
+
+
 module.exports = router

@@ -65,6 +65,7 @@ export function getOpenId() {
       //获取code
       success: function (res) {
         var code = res.code; //返回code
+        // console.log(res)
         // console.log(code);
         var appId = 'wx47e3d301cb86fab1';
         var secret = 'c0a71f643dadc4612f516c3961e48f42';
@@ -75,12 +76,26 @@ export function getOpenId() {
             'content-type': 'json'
           },
           success: function (res) {
+            // console.log(res)
             let openid = res.data.openid //返回openid
             wx.setStorageSync('OPENID', openid)  //这里需要使用异步方法
             // console.log('openid为' + openid);
           }
         })
       }
+  })
+  wx.getSetting({ // 查看是否授权
+    success(res) {
+      if (res.authSetting['scope.userInfo']) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+        wx.getUserInfo({
+          success: function (res) {
+            // console.log(res.userInfo)
+            let userInfo = res.userInfo
+            wx.setStorageSync('USERINFO', userInfo)
+          }
+        })
+      }
+    }
   })
 }
 
