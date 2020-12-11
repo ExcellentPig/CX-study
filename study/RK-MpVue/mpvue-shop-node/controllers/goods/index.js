@@ -38,13 +38,41 @@ async function detailAction (ctx) {
 								})
 								.select()
 	
-							
+	
+	// 判断是否收藏过
+	const iscollect = await mysql('nideshop_collect')
+							.where({
+								'user_id': openId,
+								'value_id': goodsId
+							})
+							.select()
+	let collected = false 
+	if (iscollect.length > 0) {
+		collected = true
+	}
+	
+	// 购物车的数量 判断该用户的购物车里是否含有此商品
+	const oldNumber = await mysql('nideshop_cart')
+							.where({
+								'user_id': openId // 查询对应openId的数据
+							})
+							.column('number').select()
+	// console.log(oldNumber)
+	let allnumber = 0
+	if (oldNumber.length > 0) {
+		for (let i=0; i<oldNumber.length; i++) {
+			const element = oldNumber[i]
+			allnumber += element.number // 已经有了 就将数量加一
+		}
+	}
 	ctx.body = { // 输出到前端
 		'info': info[0] || [], // 拿到第一个数据 以防万一 出现过个 前端也方便处理
 		'gallery': gallery,
 		'attribute': attribute,
 		'issueList': issueList,
-		'productList': productList
+		'productList': productList,
+		'collected': collected,
+		'allnumber': allnumber
 	}
 }
 

@@ -99,6 +99,16 @@ export function getOpenId() {
   })
 }
 
+// 封装方法取出内存Storage中的openId
+export function getStorageOpenId() {
+  const openId = wx.getStorageSync('OPENID')
+  if (openId) {
+    return openId
+  } else {
+    return ''
+  }
+}
+
 export default {
   formatNumber,
   formatTime

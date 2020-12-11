@@ -73,7 +73,7 @@
     <div class="goodsList" v-if="listData.length !== 0">
       <div class="sortnav">
         <div @click="changeTab(0)" :class="[0 === nowIndex ? 'active' : '']">综合</div>
-        <div @click="changeTab(1)" :class="[1 === nowIndex ? 'active' : '']" class="price">价格</div>
+        <div @click="changeTab(1)" :class="[1 === nowIndex ? 0 === isasc ? 'active desc' : 'active asc' : '']" class="price">价格</div>
         <div @click="changeTab(2)" :class="[2 === nowIndex ? 'active' : '']">分类</div>
       </div>
       <div class="sortlist">
@@ -104,7 +104,8 @@ export default {
       tipsData: [], // 提示数据
       order: '',  // 控制排序
       listData: [], // 商品列表
-      nowIndex: 0 // 当前nav的下标
+      nowIndex: 0, // 当前nav的下标
+      isasc: 0  // 控制价格的箭头 是正序还是倒序
     }
   },
   mounted () {
@@ -145,7 +146,7 @@ export default {
       const data = await get('/search/helperAction', {
         keyword: this.words
       })
-      console.log(data)
+      // console.log(data)
       this.tipsData = data.keywords
     },
     async searchWords (e) {
@@ -189,13 +190,21 @@ export default {
       })
       // console.log(data)
       this.listData = data.keywords
+      // console.log(this.listData)
       this.tipsData = []  // 商品被搜索出 就不需要tips了
     },
     changeTab (index) {
       // 点击切换tab状态
       this.nowIndex = index
       if (index === 1) {
-        this.order = this.order === 'asc' ? 'desc' : 'asc'
+        // this.order = this.order === 'asc' ? 'desc' : 'asc'
+        if (this.order === 'asc') {
+          this.order = 'desc'
+          this.isasc = 0 // 倒序
+        } else {
+          this.order = 'asc'
+          this.isasc = 1 // 正序
+        }
       } else {
         this.order = ''
       }

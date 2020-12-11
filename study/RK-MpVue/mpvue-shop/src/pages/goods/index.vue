@@ -90,17 +90,17 @@
     </div>
     <!-- 底部栏 -->
     <div class="bottom-fixed">
-      <div class="collect-box">
-        <div class="collect"></div>
+      <div class="collect-box" @click="collect">
+        <div :class="collectFlag ? 'collect active' : 'collect'"></div>
       </div>
-      <div class="cart-box">
+      <div class="cart-box" @click="toCart">
       	<div class="cart">
-          <span>3</span>
+          <span v-show="allnumber > 0">{{ allnumber }}</span>
           <img src="/static/images/ic_menu_shoping_nor.png" alt="购物车">
         </div>
       </div>
-      <div>立即购买</div>
-      <div>加入购物车</div>
+      <div @click="buy">立即购买</div>
+      <div @click="addCart">加入购物车</div>
     </div>
     <!-- 选择规格的弹出层
       pop 遮罩层
@@ -152,7 +152,11 @@ export default {
       attribute: [], // 商品规格数据
       goods_desc: '', // 图片信息
       issueList: [], // 常见问题的数据
-      productList: [] // 大家都看的商品列表
+      productList: [], // 大家都看的商品列表
+      collectFlag: false, // 是否收藏的字段
+      goodsId: '', // 商品ID
+      allnumber: 0,  //购物车数量
+      allPrice: 0, // 总价格
     }
   },
   components: {
@@ -168,21 +172,30 @@ export default {
   },
   mounted () {
     this.openId = wx.getStorageSync('OPENID') || '' // 拿到已存入的openid
+    // 拿到 详情页跳转时 伴随的id
+    // this.id = this.$root.query.id  // 原生小程序获取 路由参数的方法
+    this.id = this.$root.$mp.query.id // mpvue 获取路由参数的方法
+    // console.log(this.id)
+    // 这里注意顺序问题 this.id的赋值应该在goodsDetail 之前 否者拿不到伴随的商品id
     this.goodsDetail()
   },
   methods: {
     async goodsDetail () {
       const data = await get('/goods/detailAction', {
-        id: 1009024,
+        id: this.id,
         openId: this.openId
       })
-      console.log(data)
+      // console.log(data)
       this.gallery = data.gallery
       this.info = data.info
       this.attribute = data.attribute
       this.goods_desc = data.info.goods_desc
       this.issueList = data.issueList
       this.productList = data.productList
+      this.goodsId = data.info.id
+      this.collectFlag = data.collected // 从后端取出 是否已经收藏 为页面初始化时显示
+      this.allnumber = data.allnumber
+      this.allPrice = data.info.retail_price // 总价  先保存为单价
     },
     showType () {
       // 控制 是否显示弹框
@@ -195,6 +208,83 @@ export default {
       this.number --
       if (this.number < 0) {
         this.number = 0
+      }
+    },
+    async collect () {
+      // 控制收藏按钮 五角星 需要将状态存入后端
+      this.collectFlag = !this.collectFlag // 这里在后端 goods接口中 传入了是否收藏的字段 以此判断 是否已经收藏
+      const data = await post('/collect/addCollect', {
+        openId: this.openId, // 传入每个人的openId
+        goodsId: this.goodsId // info中拿到的id
+      })
+      // console.log(data)
+    },
+    toCart () {
+      wx.switchTab({ // 跳导航页面需要使用switchTab 而不是navigateTo
+        url: '/pages/cart/main'
+      })
+    },
+    async buy () {
+      // 判断 选择数量弹窗是否显示 没显示就显示 显示了就可以购买
+      if (this.showpop) {
+        // console.log(1)
+        if (this.number === 0) { // 购买的数量为0
+        // console.log(2)
+          wx.showToast({ // 提示
+            title: '请选择商品数量',
+            duration: 2000,
+            icon: 'none',
+            mask: true, // 显示遮罩层
+            success: res => {}
+          })
+          return false // 结束 不走下面的逻辑了
+        }
+        // 可以点击立即购买
+        const data = await post('/order/submitAction', {
+          goodsId: this.goodsId,
+          openId: this.openId,
+          allPrice: this.allPrice
+        })
+        console.log(data)
+        if (data) { // 成功 就跳转到支付页面
+          wx.navigateTo({
+            url: '/pages/order/main'
+          })
+        }
+      } else {
+        this.showpop = true
+      }
+    },
+    async addCart () { // 点击加入购物车
+      if (this.showpop) {
+        if (this.number === 0) { // 购买的数量为0
+        // console.log(2)
+          wx.showToast({ // 提示
+            title: '请选择商品数量',
+            duration: 2000,
+            icon: 'none',
+            mask: true, // 显示遮罩层
+            success: res => {}
+          })
+          return false // 结束 不走下面的逻辑了
+        }
+        // number不为0
+        const data = await post('/cart/addCart', {
+          openId: this.openId,
+          goodsId: this.goodsId,
+          number: this.number
+        })
+        // console.log(data)
+        if (data) {
+          this.allnumber = this.allnumber + this.number
+          wx.showToast({ // 提示
+            title: '添加购物车成功',
+            duration: 1500,
+            icon: 'success'
+          })
+        }
+      } else {
+        this.showpop = true
       }
     }
   }

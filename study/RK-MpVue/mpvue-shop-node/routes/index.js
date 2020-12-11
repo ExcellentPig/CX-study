@@ -30,4 +30,21 @@ router.get('/search/helperAction', controllers.search.index.helperAction)
 router.get('/goods/detailAction', controllers.goods.index.detailAction)
 
 
+// 收藏相关的接口---添加收藏 
+router.post('/collect/addCollect', controllers.collect.index.addCollect)
+
+// 订单相关的接口---购买
+router.post('/order/submitAction', controllers.order.index.submitAction)
+// 订单相关的接口---获取支付，地址等详细信息
+router.get('/order/detailAction', controllers.order.index.detailAction)
+
+// 购物车相关的接口---添加购物车
+router.post('/cart/addCart', controllers.cart.index.addCart)
+
+// 地址相关的接口---获取地址列表
+router.get('/address/getListAction', controllers.address.index.getListAction)
+
+// 地址相关的接口---根据id获取地址信息
+router.get('/address/detailAction', controllers.address.index.detailAction)
+
 module.exports = router
