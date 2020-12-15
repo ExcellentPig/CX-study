@@ -178,6 +178,7 @@ export default {
       this.hotGoods = data.hotGoods
     },
     categoryList (id) {
+      // console.log(id)
       wx.navigateTo({
         url: `/pages/categorylist/main?id=${id}`
       })

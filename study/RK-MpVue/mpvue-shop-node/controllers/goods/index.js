@@ -76,6 +76,47 @@ async function detailAction (ctx) {
 	}
 }
 
+// 对应分类的商品列表
+async function goodsList (ctx) {
+	const categoryId = ctx.query.categoryId
+	// console.log(categoryId)
+	let goodsList = []
+	if (categoryId) {
+		goodsList = await mysql('nideshop_goods')
+						.where({
+							'category_id': categoryId
+						})
+						.select()
+		const currentNav = await mysql('nideshop_category')
+								.where({
+									'id': categoryId
+								}).select()
+		if (goodsList.length == 0) { // 没有取到商品
+			// 找到之先关的子类，在找到与子类相关的商品
+			let subIds = await mysql('nideshop_category')
+								.where({
+									'parent_id': categoryId
+								})
+								.column('id')
+								.select()
+			if (subIds !== 0) { // 在子类中嫩能够拿到
+				subIds = subIds.map(item => {
+					return item.id
+				})
+			}
+			goodsList = await mysql('nideshop_goods')
+							.whereIn('category_id', subIds)
+							.limit(50)
+							.select()
+		}
+		ctx.body = {
+			data: goodsList,
+			currentNav: currentNav[0]
+		}
+	}
+}
+
 module.exports =  {
-	detailAction
+	detailAction,
+	goodsList
 }

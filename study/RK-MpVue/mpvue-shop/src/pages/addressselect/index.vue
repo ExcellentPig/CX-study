@@ -15,7 +15,7 @@
             </div>
             <div class="info" @click="selAddress(item.id)">
               <p>{{ item.mobile }}</p>
-              <p>{{ item.addree + item.address_detail }}</p>
+              <p>{{ item.address + item.address_detail }}</p>
             </div>
             <div @click="toDetail(item.id)"></div>
           </div>
@@ -48,9 +48,10 @@ export default {
   },
   methods: {
     toDetail (id) {
+      console.log(id)
       // 点击进入 地址编辑
       wx.navigateTo({
-        url: '/pages/addaddress/main?id' + id
+        url: '/pages/addaddress/main?id=' + id
       })
     },
     wxaddress (index) {
@@ -78,7 +79,7 @@ export default {
       const data = await get('/address/getListAction',{
         openId: _this.openId
       })
-      // console.log(data)
+      console.log(data)
       _this.listData = data.data
     },
     selAddress (id) {

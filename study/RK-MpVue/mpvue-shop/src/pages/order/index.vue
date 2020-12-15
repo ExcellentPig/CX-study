@@ -75,7 +75,7 @@ export default {
   onShow () { // 小程序生命周期  替代mounted
     // this.opendId = wx.getStorageSync('OPENID')
     if (wx.getStorageSync('addressId')) {
-      this.addressId = getStorageOpenId
+      this.addressId = wx.getStorageSync('addressId')
     }
     this.openId = getStorageOpenId() // 封住的从内存中获取openid的方法 同上
     this.getDetail()
@@ -108,7 +108,8 @@ export default {
         this.address = data.address
       }
       this.listData.map(item => {
-        this.allPrice += item.retail_price * item.number // 计算总价
+        console.log(item.retail_price * item.number)
+        this.allPrice = Number(item.retail_price * item.number) + Number(this.allPrice) // 计算总价
       })
     },
     pay () {

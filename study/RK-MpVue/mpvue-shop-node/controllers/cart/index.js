@@ -16,7 +16,7 @@ async function addCart (ctx) {
 								'id': goodsId // 去商品表中查找
 							})
 							.select()
-		console.log(goods)
+		// console.log(goods)
 		// 如果goods不存在
 		const { retail_price, name, list_pic_url } = goods[0]
 		await mysql('nideshop_cart').insert({
@@ -50,6 +50,22 @@ async function addCart (ctx) {
 	}
 }
 
+// 获取购物车列表
+async function cartList (ctx) {
+	const  openId  = ctx.query.openId
+	// console.log(openId)
+	const cartList = await mysql('nideshop_cart')
+							.where({
+								'user_id': openId
+							})
+							.select()
+	// console.log(cartList)
+	ctx.body = {
+		data: cartList
+	}
+}
+
 module.exports = {
-	addCart
+	addCart,
+	cartList
 }

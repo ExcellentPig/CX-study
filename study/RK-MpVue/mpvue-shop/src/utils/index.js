@@ -109,6 +109,26 @@ export function getStorageOpenId() {
   }
 }
 
+// 判断是否用户已经登录
+export function login () {
+  const userInfo = wx.getStorageSync('USERINFO')
+  if (userInfo) {
+    return userInfo
+  }
+}
+
+// 没登录就跳转去登录页面
+export function toLogin () {
+  const userInfo = wx.getStorageSync('USERINFO')
+  if (!userInfo) {
+    wx.navigateTo({
+      url: '/pages/login/main'
+    })
+  } else {
+    return true
+  }
+}
+
 export default {
   formatNumber,
   formatTime

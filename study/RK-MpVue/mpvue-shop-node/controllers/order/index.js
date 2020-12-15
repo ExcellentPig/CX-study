@@ -1,5 +1,6 @@
 const { mysql } = require('../../mysql')
 
+//购买、下单 向后端post数据
 async function submitAction (ctx) {
 	const { openId } = ctx.request.body
 	// 其他写法获取post 参数
@@ -70,6 +71,7 @@ async function detailAction (ctx) {
 	// console.log(list)
 	// 收货地址
 	var addressList
+	// console.log(addressId)
 	if (addressId) { // 前端传了addressId
 		addressList = await mysql('nideshop_address')
 							.where({
@@ -78,7 +80,7 @@ async function detailAction (ctx) {
 							})
 							.orderBy('is_default', 'desc')
 							.select()
-	} else { // 前端没传addressId
+	} else { // 前端没传addressId  注意 这里如果手动删除了数据库里的数据 吧addressId对应的数据删除了 就会走这个条件 从而用openId 是有问题的
 		addressList = await mysql('nideshop_address')
 							.where({
 								'user_id': openId // 没传就不需要地址ID
@@ -86,12 +88,14 @@ async function detailAction (ctx) {
 							.orderBy('is_default', 'desc')
 							.select()
 	}
+	// console.log(addressList)
 	ctx.body = {
 		price: orderDetail[0].allprice, // 这只是单价
 		goodsList: list,
 		address: addressList[0] || {}
 	}
 }
+
 
 module.exports = {
 	submitAction,

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<person>
+	<name>xiamong</name>
+	<age>23</age>
+	<job>前端</job>
+	<sister>
+		<person>
+			<name>xiaohong</name>
+			<age>25</age>
+			<job>teacher</job>
+		</person>
+		<person>
+			<name>xiaohua</name>
+			<age>24</age>
+			<job>java</job>
+		</person>
+	</sister>
+</person>

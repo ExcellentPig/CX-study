@@ -24,7 +24,7 @@
       <input type="text" placeholder="详细地址|楼道|楼盘号等" v-model="detailaddress">
     </div>
     <div class="item itemend">
-      <checkbox-group @click="checkboxChange">
+      <checkbox-group @change="checkboxChange">
         <label class="checkbox">
           <checkbox
            class="box"
@@ -72,14 +72,59 @@ export default {
     }
   },
   methods: {
-    checkboxChange () {
+    checkboxChange (e) {
       // 多选框被点击
+      // this.checked = !this.checked
+      // console.log(e)
+      this.checked = e.mp.detail.value[0]
+      console.log(this.checked)
+    },
+    bindRegionChange (e) {
+      // 地址选择事件
+      // console.log(e)
+      let value = e.mp.detail.value
+      this.address = `${value[0]} ${value[1]} ${value[2]}`
     },
     wxaddress () {
       // 导入微信地址
+      wx.chooseAddress({
+        success: res => {
+          console.log(res)
+          this.userName = res.userName
+          this.telNumber = res.telNumber
+          this.address = `${res.provinceName} ${res.cityName} ${res.countyName}`
+          this.detailaddress = res.detailInfo
+        }
+      })
     },
-    saveAddress () {
+    async saveAddress () {
       // 保存地址
+      console.log(this.address)
+      const data = await post('/address/saveAction', {
+        userName: this.userName,  // 将全部地址信息传给后端
+        telNumber: this.telNumber,
+        address: this.address,
+        detailaddress: this.detailaddress,
+        checked: this.checked, // 是否是默认地址
+        openId: this.openId, // 唯一身份ID
+        addressId: this.id // 还需要出入一个地址id
+      })
+      console.log(data)
+      if (data.data) {
+        wx.showToast({
+          title: '添加成功',
+          icon: 'success',
+          duration: 2000,
+          mask: true,
+          success: res => {
+            setTimeout(() => {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 2000)
+          }
+        })
+      }
     },
     async getDetail () {
       // 根据id获取地址信息
