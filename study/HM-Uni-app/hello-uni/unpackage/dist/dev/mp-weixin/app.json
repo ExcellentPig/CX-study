@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/message/message",
+    "pages/index/index",
+    "pages/contact/contact",
+    "pages/detail/detail",
+    "pages/uni-style/uni-style",
+    "pages/list/list"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "hello un",
+    "navigationBarBackgroundColor": "#7fff00",
+    "backgroundColor": "#7ccd7c",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#007AFF",
+    "selectedColor": "#C0C0C0",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tabs/home.png",
+        "selectedIconPath": "static/tabs/home-active.png"
+      },
+      {
+        "text": "信息",
+        "pagePath": "pages/message/message",
+        "iconPath": "static/tabs/orders.png",
+        "selectedIconPath": "static/tabs/orders-active.png"
+      },
+      {
+        "text": "我们",
+        "pagePath": "pages/contact/contact",
+        "iconPath": "static/tabs/ic_menu_shoping_nor.png",
+        "selectedIconPath": "static/tabs/ic_menu_shoping_pressed.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

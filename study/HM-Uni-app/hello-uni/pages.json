@@ -1,0 +1,93 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+		    "path" : "pages/message/message",
+		    "style": {
+				"navigationBarTitleText":"message",
+				"navigationBarBackgroundColor":"#007AFF",
+				"h5": { // h5 下面的下拉样式设置
+					"pullToRefresh": {
+						"color":"#DD524D"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/index/index"
+			// "style": {
+			// 	"navigationBarTitleText": "hello un" // 页面级会覆盖全局
+			// }
+		},
+		{
+			"path":"pages/contact/contact"
+		}
+        ,{
+            "path" : "pages/detail/detail"
+        }
+        ,{
+            "path" : "pages/uni-style/uni-style",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "style学习",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/list/list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "列表页",
+                "enablePullDownRefresh": true,
+				"onReachBottomDistance": 10
+            }
+            
+        }
+    ],
+	"globalStyle": { // 全局配置
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "hello un",
+		"navigationBarBackgroundColor": "#7fff00",
+		"backgroundColor": "#7ccd7c",
+		// "enablePullDownRefresh": true, 
+		"backgroundTextStyle": "light" // 下拉点的颜色
+		// "onReachBottomDistance": 50 // 设置底部事件触发
+	},
+	"tabBar": {
+		"color":"#007AFF",
+		"selectedColor":"#C0C0C0",
+		"backgroundColor":"#fff",
+		"borderStyle":"black",
+		// "position":"top", // 只支持小程序
+		"list": [
+			{
+				"text": "首页",
+				"pagePath":"pages/index/index",
+				"iconPath":"static/tabs/home.png",
+				"selectedIconPath":"static/tabs/home-active.png"
+			},
+			{
+				"text":"信息",
+				"pagePath":"pages/message/message",
+				"iconPath":"static/tabs/orders.png",
+				"selectedIconPath":"static/tabs/orders-active.png"
+			},
+			{
+				"text":"我们",
+				"pagePath":"pages/contact/contact",
+				"iconPath":"static/tabs/ic_menu_shoping_nor.png",
+				"selectedIconPath":"static/tabs/ic_menu_shoping_pressed.png"
+			}
+		]
+	},
+	"condition": { // 在小程序编译中自动配置了一个启动页
+		"current": 0 ,// 代表list[0]激活
+		"list": [
+			{
+				"name":"详情页",
+				"path":"pages/detail/detail",
+				"query":"id=80"
+			}
+		]
+	}
+}

@@ -1,0 +1,1 @@
+<view>message<view>{{msg}}</view><view>{{1+'你好'}}</view><view>{{flag?'true':'false'}}</view><image src="{{imgUrl}}"></image><view><block wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="index"><block>{{''+item+''}}</block></block></view><button type="primary" data-event-opts="{{[['tap',[['clickHandler',['$event',20]]]]]}}" bindtap="__e">事件按钮</button></view>
