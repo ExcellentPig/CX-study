@@ -57,6 +57,9 @@
 				
 			}
 		},
+		onLoad(optons) {
+			console.log(optons)
+		},
 		methods: {
 			
 		}

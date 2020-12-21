@@ -1,0 +1,1 @@
+<view>{{'this is test components\n\t'+title+''}}<button data-event-opts="{{[['tap',[['sendNum',['$event']]]]]}}" bindtap="__e">子传父</button></view>

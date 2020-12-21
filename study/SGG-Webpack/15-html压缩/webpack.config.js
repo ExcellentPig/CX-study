@@ -15,7 +15,7 @@ module.exports = {
 			// 压缩配置
 			minify: { // 配置html压缩
 				collapseWhitespace: true, // 溢出空格
-				removeComments: true // 溢出注释
+				removeComments: true // 移除注释
 			}
 			
 		})

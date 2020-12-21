@@ -43,6 +43,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/navigator/navigator",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": { // 全局配置
 		"navigationBarTextStyle": "white",

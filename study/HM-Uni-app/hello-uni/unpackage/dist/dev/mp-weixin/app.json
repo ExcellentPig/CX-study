@@ -5,7 +5,8 @@
     "pages/contact/contact",
     "pages/detail/detail",
     "pages/uni-style/uni-style",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/navigator/navigator"
   ],
   "subPackages": [],
   "window": {

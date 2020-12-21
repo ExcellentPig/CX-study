@@ -19,7 +19,7 @@ module.exports = {
 			 * 			import '@babel/polyfill' js文件引入即可
 			 * 			问题： 这是 全部解决 引入了全部代码 体积太大
 			 * 		3、 按需加载兼容性
-			 * 			corejs //  npm i core-js -D
+			 * 			corejs //  npm i core-js -D // @core/js
 			 */
 			{
 				test: /\.js$/,

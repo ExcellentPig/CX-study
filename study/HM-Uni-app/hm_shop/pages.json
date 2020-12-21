@@ -1,0 +1,51 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index"
+		}
+	    ,{
+            "path" : "pages/cart/cart"
+        }
+        ,{
+            "path" : "pages/member/member"
+        }
+        ,{
+            "path" : "pages/news/news"
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "未来商城",
+		"navigationBarBackgroundColor": "#b50e03",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"selectedColor":"#b50e03",
+		"list": [
+			{
+				"text":"首页",
+				"pagePath":"pages/index/index",
+				"iconPath":"static/icon/home.png",
+				"selectedIconPath":"static/icon/home-hover.png"
+			},
+			{
+				"text":"咨询",
+				"pagePath":"pages/news/news",
+				"iconPath":"static/icon/inter.png",
+				"selectedIconPath":"static/icon/inter-hover.png"
+			},
+			{
+				"text":"购物车",
+				"pagePath":"pages/cart/cart",
+				"iconPath":"static/icon/cart.png",
+				"selectedIconPath":"static/icon/cart-hover.png"
+			},
+			{
+				"text":"会员",
+				"pagePath":"pages/member/member",
+				"iconPath":"static/icon/mine.png",
+				"selectedIconPath":"static/icon/mine-hover.png"
+			}
+		]
+	}
+}

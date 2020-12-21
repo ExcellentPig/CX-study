@@ -6,42 +6,15 @@
   "setting": {
     "urlCheck": false,
     "es6": false,
-    "enhance": false,
     "postcss": false,
-    "preloadBackgroundData": false,
-    "minified": false,
-    "newFeature": false,
-    "coverView": true,
-    "nodeModules": false,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "enableEngineNative": false,
-    "bundle": false,
-    "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minified": false
   },
   "compileType": "miniprogram",
   "libVersion": "",
   "appid": "wx47e3d301cb86fab1",
   "projectname": "hello-uni",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "plugin": {
       "list": []
@@ -61,21 +34,14 @@
           "query": "id=80"
         },
         {
-          "name": "pages/uni-style/uni-style",
-          "pathName": "pages/uni-style/uni-style",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/list/list",
-          "pathName": "pages/list/list",
+          "name": "pages/navigator/navigator",
+          "pathName": "pages/navigator/navigator",
           "query": "",
           "scene": null
         },
         {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
-          "query": "",
           "scene": null
         }
       ]
