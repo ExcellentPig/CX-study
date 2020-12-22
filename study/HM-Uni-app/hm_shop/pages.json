@@ -12,6 +12,9 @@
         ,{
             "path" : "pages/news/news"
         }
+        ,{
+            "path" : "pages/pics/pics"
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

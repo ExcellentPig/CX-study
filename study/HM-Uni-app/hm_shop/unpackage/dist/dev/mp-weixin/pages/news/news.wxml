@@ -1,1 +1,1 @@
-<view>news</view>
+<view class="data-v-c454de34"><view data-event-opts="{{[['tap',[['callPhone',['$event']]]]]}}" bindtap="__e" class="data-v-c454de34">{{'点击调用拨打电话API '+phone}}</view><map class="map data-v-c454de34" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></map></view>
