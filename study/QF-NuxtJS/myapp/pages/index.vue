@@ -7,6 +7,15 @@
     <h1>index getters {{ getNav }}</h1>
     <h1>index state {{ bNav }}</h1>
     <h1>user state {{ data }}</h1>
+    <h4>内部资源指向</h4>
+    <!--
+      相对路径 找到一些需要压缩资源 assets
+      绝对路径 找到无需压缩的资源 static
+      ~assets ~代表根
+      @代表 src
+    -->
+   <!-- <img src="../assets/xxx.png" alt=""> -->
+  <!-- <img src="/static/bg.jpg" alt=""> -->
   </div>
 </template>
 
@@ -126,4 +135,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped="scoped">
+  /* css 需要压缩的资源 assets */
+ /* .bgimg {
+    background: url('../asstes/xxx.png');
+  } */
+</style>

@@ -11,6 +11,9 @@ export default {
   beforeRouteLeave(to, from, next) {
     let bl = window.confirm('是否离开')
     next(bl)
+  },
+  head() {
+    return this.$seo('reg', 'reg component', [{}])
   }
 }
 </script>

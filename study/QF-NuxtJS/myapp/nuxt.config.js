@@ -1,7 +1,12 @@
 export default {
+  // mode: 'universal',
+  // server: {
+  //   prot: 3000,
+  //   host: '0.0.0.0'
+  // },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'myapp',
+    title: process.env.npm_package_name || 'myapp',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -9,7 +14,14 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    // script: [
+    //   {src: '外部链接'}
+    // ],
+    // link: [
+    //   { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    //   { rel: 'stylesheet', href: '外部链接' }
+    // ],
   },
 
   // middleware
@@ -34,6 +46,7 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   // 全局样式
   css: [
+    'assets/css/base.css',
     'assets/css/transition.css',
     'element-ui/lib/theme-chalk/index.css'
   ],
@@ -49,7 +62,8 @@ export default {
       src: '~/plugins/element-ui',
       ssr: true,
       // mode: 'server' // or client // v2.4+
-    }
+    },
+    '~/plugins/mixins'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -62,8 +76,14 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     '@nuxtjs/axios',
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    '@nuxtjs/style-resources'
   ],
+  styleResources: { // 需要添加这个 用来配置全局
+    scss: [
+      './assets/scss/global.scss'
+    ]
+  },
   // 跨域
   axios: {
     proxy: true, // 开启跨域行为
