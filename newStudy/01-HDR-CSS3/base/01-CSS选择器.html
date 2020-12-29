@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CSS选择器</title>
+		<style>
+			/* * {
+				color: red;
+			}
+			h1 {
+				color: darkcyan;
+				font-family: 'Courier New', Courier, monospace;
+			}
+			a {
+				text-decoration: none;
+			}
+			.success {
+				border: solid 1px green;
+				color: green;
+			}
+			.error {
+				border: solid 1px red;
+				color: red;
+			}
+			main article h2 {
+				color: darkgreen;
+			}
+			main article > h2 {
+				color: red;
+			}
+			main article  h1~h2 {
+				color: yellow;
+			}
+			main article  h1+h2 {
+				color: yellow;
+			} */
+			
+			/* h1[title="xxx"] {}  属性选择器*/
+			/* h1[title^="xxx"] {} 
+			^以xxx开始的 
+			$以xxx结束的 
+			*表示任何位置xxx 
+			~表示xxx是独立的一个词
+			| 表示用 - 连接 xxx的
+			*/
+		   
+		  /* a:link { // 链接颜色
+			   
+		   }
+		   a:visited { // 访问后颜色
+			   
+		   }
+		   a:hover { // 鼠标移入
+			   
+		   }
+		   a:active { // 点击时
+			   
+		   } 
+		   :focus 获取焦点
+		   :target 锚点
+		   :root 顶级的根元素 就是 html{}
+		   :empty 空选择器
+		   */
+		  
+		  /* article:first-child {}  下的所有第一个元素
+			article>:first-child {}  第一个子元素
+			article h1:first-child {} 限制h1的第一个元素
+			 :first-of-type 这个类型中的第一个
+			 :last-child 最后一个
+			 :only-of-type 唯一选择器
+			 :nth-child(1) 后代第一个
+			 :nth-child(n) 所有
+			 :nth-child(2n-1) 隔行
+			 :nth-child(odd) 技术
+			 :nth-child(even) 偶数
+			 :nth-last-child(-n+2) 后两个 
+		  */
+		 /* main> ul li:nth-child(-n-3):not(:nth-child(2)) {} 排除选择器 */
+		 
+		 
+		 /* 
+		 表单的选择器
+		 input:disabled {} 禁用
+		 :enabled 启用
+		 :checked+label 选择
+		 :required 必添
+		 :optional 非必添
+		 :valid 验证有效
+		 :invalid 验证无效
+		  */
+			
+		/* 
+		文本
+		p::first-letter {} 第一个字符
+			::first-line 第一行
+			
+		span::after { before
+			content: "com"
+		}
+		
+		 */
+		
+		/**
+		    id 0100
+			class 0010
+			标签、伪元素 0001
+			* 0000
+			行内 1000
+			
+			css继承没有权重 null 
+			通配符 * > 继承的
+		 */
+		
+		/* 预处理器 */
+		/* article {
+			h2 {
+				color: red;
+			}
+		} */
+	
+		</style>
+	</head>
+	<body>
+		<h1>khan</h1>
+		<span>rose</span><a href="#">xxxxx</a>
+		<div class="success">success</div>
+		<div class="error">error</div>
+		<main>
+			<article>
+				<h1>xxxx</h1>
+				<aside>
+					<h2>xxxx</h2>
+				</aside>
+				<h2>xxx</h2>
+			</article>
+		</main>
+	</body>
+</html>
