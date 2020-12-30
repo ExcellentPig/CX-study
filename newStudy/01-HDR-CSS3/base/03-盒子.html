@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>盒子</title>
+		<style>
+			.div1 {
+				width: 300px;
+				height: 300px;
+				/* border-style: groove; */
+				border-top: 10px double #000000;
+			}
+			.div1 > em {
+				border-bottom: 5px solid red;
+				border-radius: 50%;
+			}
+			input[name="title"] {
+				outline: none;
+				border: none;
+			}
+			.div2 > a {
+				/* display: block; */
+				visibility: hidden;
+				/* display: none; */
+			}
+			main {
+				width: 100vw;
+				height: 100px;
+				background-color: #8b48b5;
+			}
+			main > div {
+				background: #f1c40f;
+				/* display: inline-block;
+				width: -webkit-fill-available; 自动撑满 */
+				/* width: fit-content; */ /* width自动适应内容 */
+				width: max-content;
+				margin: auto;
+				height: -webkit-fill-available;
+			} 
+		</style>
+	</head>
+	<body>
+		<div class="div1"><em>4444</em></div>
+		<input type="text" name="title">
+		<div class="div2">
+			<a href="">Mysql</a>
+			<a href="">Mysql</a>
+		</div>
+		<main>
+			<div>123456789</div>
+		</main>
+	</body>
+</html>

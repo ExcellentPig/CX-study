@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表格</title>
+		<link rel="stylesheet" type="text/css" href="./css/table.css"/>
+		<style>
+			table {
+				border-collapse: collapse;
+				border: 1px solid #ddd;
+				empty-cells: hide;
+			}
+			
+			ul {
+				list-style-image: radial-gradient(5px 5px, red, yellow ,blue);
+			}
+			
+			input {
+				border: none;
+				outline: none;
+				width: 100%;
+			}
+			.field {
+				position: relative;
+			}
+			.field::after {
+				content: "";
+				background: linear-gradient(to right, white,red, green, blue, white);
+				display: block;
+				height: 1px;
+			}
+			.field:hover::before {
+				content: attr(data-help);
+				color: #666;
+				font-size: 12px;
+				position: absolute;
+				top: -10px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>编号</td>
+					<td>标题</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>wwww</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>2</td>
+					<td>sssss</td>
+				</tr>
+			</tfoot>
+		</table>
+		
+		<article class="table">
+			<nav>课程介绍</nav>
+			<section>
+				<ul>
+					<li>编号</li>
+					<li>标题</li>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li>1</li>
+					<li>标题</li>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li>2</li>
+					<li>标题</li>
+				</ul>
+			</section>
+		</article>
+		
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		
+		
+		<div class="field" data-help="请输入100以内的字符">
+			<input type="text">
+		</div>
+		<div class="field" data-help="请输入100以内的字符">
+			<input type="text">
+		</div>
+		<div class="field" data-help="请输入100以内的字符">
+			<input type="text">
+		</div>
+		
+	</body>
+</html>
