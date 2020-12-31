@@ -3,7 +3,87 @@
 	<head>
 		<meta charset="utf-8">
 		<title>浮动</title>
+		<style>
+			/* div {
+				width: 200px;
+				height: 200px;
+			}
+			div.red {
+				border: 2px solid red;
+				float: left;
+			}
+			div.green {
+				border: 2px solid green;
+				float: right;
+			}
+			div.blue {
+				background-color: blue;
+				clear: both;
+			} */
+			
+			
+			/* 方式一  需要加标签 */
+			/* .clearfix {
+				clear: both;
+			} */
+			
+			
+			/* main {
+				border: 3px solid #000000;
+				width: 610px;
+				margin: 0 auto;
+				padding: 20px;
+			} */
+			/* 方式二 after 伪类清除浮动 */
+			/* main::after {
+				content: "";
+				display: block;
+				clear: both;
+			} */
+			
+			/* 方式三 overflow触发BFC 伪类清除浮动 */
+			main {
+				border: 3px solid #000000;
+				width: 610px;
+				margin: 0 auto;
+				padding: 20px;
+				overflow: hidden;
+			}
+			
+			
+			div {
+				width: 300px;
+				height: 200px;
+				box-sizing: border-box;
+			}
+			div:nth-of-type(1) {
+				border: 3px solid red;
+				float: left;
+			}
+			div:nth-of-type(2) {
+				background-color: blue;
+				float: right;
+			}
+			
+		</style>
 	</head>
 	<body>
+		<!-- <main>
+			<div class="red"></div>
+			<div class="green"></div>
+			<div class="blue"></div>
+		</main> -->
+		
+		<!-- <main>
+			<div></div>
+			<div></div>
+			<article class="clearfix"></article>
+		</main> -->
+		
+		<main>
+			<div></div>
+			<div></div>
+		</main>
+		
 	</body>
 </html>

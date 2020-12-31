@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>环绕</title>
+		<style>
+			p {
+				border: 1px solid #ddd;
+				padding: 10px;
+			}
+			span.shape {
+				width: 100px;
+				height: 100px;
+				float: left;
+				padding: 30px;
+				border: 20px solid red;
+				margin: 30px;
+				shape-outside: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			<span class="shape"></span>
+			BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。
+			
+			在解释什么是BFC之前，我们需要先知道Box、Formatting Context的概念。
+			
+			Box：css布局的基本单位
+			Box 是 CSS 布局的对象和基本单位， 直观点来说，就是一个页面是由很多个 Box 组成的。元素的类型和 display 属性，决定了这个 Box 的类型。 不同类型的 Box， 会参与不同的 Formatting Context（一个决定如何渲染文档的容器），因此Box内的元素会以不同的方式渲染。让我们看看有哪些盒子：
+		</p>
+	</body>
+</html>
