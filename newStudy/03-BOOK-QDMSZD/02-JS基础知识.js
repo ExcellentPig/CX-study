@@ -30,7 +30,7 @@ class PrimitiveString {
 console.log('hee' instanceof PrimitiveString) // true
 
 /*
-转Boolean 除了undefined、null、false、NaN、''、0、-0,其他所有值都转为true,包括所有对象
+Boolean 除了undefined、null、false、NaN、''、0、-0,其他所有值都转为true,包括所有对象
 */
 
 /*

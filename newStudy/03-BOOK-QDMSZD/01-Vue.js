@@ -1,5 +1,5 @@
 /**
-React和Vue他们都不是MVVM框架，知识借鉴MVVM的思路
+React和Vue他们都不是MVVM框架，只是借鉴MVVM的思路
 	View —— 用户看见的视图
 	Model —— 一般是本地数据和数据库中的数据
 	ViewModel —— 只关心数据和业务的处理，不关心View如何处理数据 View和Model都有可以独立起来互不干扰
@@ -14,20 +14,20 @@ React和Vue他们都不是MVVM框架，知识借鉴MVVM的思路
  */
 
 /*
-当然了 Virtual DOM(虚拟DOM其实就是雷类似于JS对象) 提高性能是其中一个优势，其实最大的优势还是在于：
+当然了 Virtual DOM(虚拟DOM其实就是类似于JS对象) 提高性能是其中一个优势，其实最大的优势还是在于：
 	将 Virtual DOM 作为一个兼容层，让我们还能对接非 Web 端的系统，实现跨端开发。
 	同样的，通过 Virtual DOM 我们可以渲染到其他的平台，比如实现 SSR、同构渲染等等。
 	实现组件的高度抽象化
 */
 
 /*
-路由原理本质就是监听URL的变化，人后匹配路由规则，显示相应的页面，并且无需刷新页面，有以下两种方式实现：
+路由原理本质就是监听URL的变化，然后匹配路由规则，显示相应的页面，并且无需刷新页面，有以下两种方式实现：
 	Hash模式
 	History模式
 	对比：
 		Hash模式只可以更改#后面的内容，History模式可以通过API设置任意的同源URL
 		History模式可以通过API添加任意类型数据到历史记录中，Hash模式只能更改Hash值，也就是字符串
-		Hash模式无需后端配置，并且兼容性好。History模式在用户手动输入地址或者刷新页面的时候回发起URL请求
+		Hash模式无需后端配置，并且兼容性好。History模式在用户手动输入地址或者刷新页面的时候会发起URL请求
 		后端需要配置index.html页面用于匹配不到静态资源的情况
 */
 window.addEventListener('hashchange', ()=> {}) // #后面的哈希值发生变化时 
@@ -41,11 +41,11 @@ window.addEventListener('propstate', e=> {
 
 /*
 vue生命周期钩子函数
-	beforeCreated钩子函数调用时，是获取不到prop或者data中的数据的，因为这些数据的初始化都在initState中
+	beforeCreate钩子函数调用时，是获取不到prop或者data中的数据的，因为这些数据的初始化都在initState中
 	created钩子函数，这里已经可以访问之前不可以访问的数据了，但是这个时候组件还没被挂载，所以看不见
 	beforeMount 开始创建VDOM(虚拟DOM)
 	mounted 将VDOM渲染为真实DOM并且渲染数据。组件中如果有子组件的话，会递归挂载子组件，只有当所有子组件全部挂载完毕，才会执行根组件的挂载钩子
-	beforUpdate和update 分别是在更新前和更新后会调用
+	beforUpdate和updated 分别是在更新前和更新后会调用
 	keep-alive独立的生命周期 
 		activated
 		deactivated
@@ -134,7 +134,7 @@ keep-alive 组件的作用
 		activated
 		deactivated
 		用keep-alive包裹的组件在切换时不会进行销毁，而是缓存到内存中并执行deactivated钩子函数，
-		命中缓存后悔执行activated钩子函数
+		命中缓存后执行activated钩子函数
 */
 
 /*
