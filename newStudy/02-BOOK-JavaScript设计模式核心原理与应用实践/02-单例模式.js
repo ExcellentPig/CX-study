@@ -136,6 +136,6 @@ const Storage = (function() {
 const storage1 = new Storage()
 const storage2 = new Storage()
 storage1.setItem('name', 'lieli')
-storage1.getItem('name') // lile
+storage1.getItem('name') // lilei
 storage2.getItem('name') // lilei
 storage1 === storage2 // true

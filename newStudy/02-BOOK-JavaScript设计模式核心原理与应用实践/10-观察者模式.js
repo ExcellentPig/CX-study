@@ -90,7 +90,7 @@ class DeveloperObserver extends Observer {
 }
 // 创建订阅者：前端开发李雷
 const liLei = new DeveloperObserver()
-// 创建订阅者：服务端开发小A（sorry。。。起名字真的太难了）
+// 创建订阅者：服务端开发小A
 const A = new DeveloperObserver()
 // 创建订阅者：测试同学小B
 const B = new DeveloperObserver()
