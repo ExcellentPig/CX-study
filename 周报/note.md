@@ -1,4 +1,4 @@
-1. vue实现复制粘贴功能
+1. Vue实现复制粘贴功能
 
    1. 安装依赖  npm install --save vue-clipboard2
 
