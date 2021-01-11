@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1604304667634" clover="3.2.0">
+  <project timestamp="1604304667634" name="All files">
+    <metrics statements="25" coveredstatements="25" conditionals="4" coveredconditionals="4" methods="14" coveredmethods="14" elements="43" coveredelements="43" complexity="0" loc="25" ncloc="25" packages="3" files="4" classes="4"/>
+    <package name="src">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="App.vue" path="/Users/admin/Desktop/code/study/Imooc-TestingClass/lesson4/jest-vue/src/App.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.containers.TodoList">
+      <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
+      <file name="TodoList.vue" path="/Users/admin/Desktop/code/study/Imooc-TestingClass/lesson4/jest-vue/src/containers/TodoList/TodoList.vue">
+        <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="32" count="14" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="55" count="4" type="stmt"/>
+        <line num="57" count="6" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="63" count="6" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.containers.TodoList.components">
+      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+      <file name="Header.vue" path="/Users/admin/Desktop/code/study/Imooc-TestingClass/lesson4/jest-vue/src/containers/TodoList/components/Header.vue">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="22" count="12" type="stmt"/>
+        <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+      </file>
+      <file name="UndoList.vue" path="/Users/admin/Desktop/code/study/Imooc-TestingClass/lesson4/jest-vue/src/containers/TodoList/components/UndoList.vue">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
