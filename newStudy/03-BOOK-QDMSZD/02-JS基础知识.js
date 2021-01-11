@@ -23,7 +23,7 @@ typeof/instanceof
 	对于原始类型来说直接通过instanceof来判断类型是不行的
 */
 class PrimitiveString {
-	static [Symbol.hasInsyance](x) {
+	static [Symbol.hasInstance](x) {
 		return typeof x === 'string'
 	}
 }
@@ -87,4 +87,14 @@ function deepClone(obj) {
 	Function是所有函数的爸爸，所有函数都可以通过__proto__找到它
 	函数的prototype是一个对象
 	对象的__proto__属性指向原型，__proto__将对象和原型连接起来组成了原型链
+*/
+
+/*
+数组方法
+	push()		在数组末尾添加一个或多个元素，返回数组新长度
+	pop()		移除数组的最后一项，返回移除的项
+	shift()		移除数组第一项，返回移除项
+	unshift()	在数组的第一项前面添加一个或者多个元素，返回数组的长度
+	
+	纯函数: 1、不会改变原函数   2、返回一个数组
 */

@@ -75,6 +75,7 @@ let obj = {
 		n:20
 	}
 }
+let newObj = {}
 for(let key in obj) {
 	newObj[key] = obj[key]
 }
