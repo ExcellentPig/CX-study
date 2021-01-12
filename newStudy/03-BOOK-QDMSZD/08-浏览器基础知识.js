@@ -30,7 +30,7 @@ node.addEventListener('click', event => {
 // 封装JSONP 
 function jsonp (url, jsonpCallback, success) {
 	let script = document.createElement('script')
-	script.scr = url
+	script.src = url
 	script.async = true
 	script.type = 'text/javascript'
 	window[jsonpCallback] = function (data) {
@@ -55,7 +55,7 @@ app.use((req, res, next) => {
 })
 
 // document.domain
-// 只能用于耳机域名相同的情况下 a.test.com  b.test.com
+// 只能用于二级域名相同的情况下 a.test.com  b.test.com
 document.domain = 'test.com'
 
 // postMessage

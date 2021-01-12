@@ -32,6 +32,7 @@
 				methods: {
 					handleClick() {
 						fetch("./lib/test.json").then(res=>{
+							console.log(res,'--')
 							return res.json() // 第一个then拿不到数据
 						}).then(res=>{
 							console.log(res)
