@@ -2,7 +2,7 @@ const CONF = {
 	port: '5757',
 	mysql: {
 		host: 'localhost',
-		post: 3306,
+		port: 3306,
 		user: 'root',
 		db: 'nodemysql',
 		pass: 'root',

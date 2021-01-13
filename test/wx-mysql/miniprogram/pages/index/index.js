@@ -16,11 +16,17 @@ Page({
 	}).then(res => {
 		console.log(res)
 	})
+	// wx.request({
+	// 	url: 'http://localhost:5757/lm/index/index',
+	// 	success (res) {
+	// 		console.log(res)
+	// 	}
+	// })
   },
   onLoad: function() {
     if (!wx.cloud) {
       wx.redirectTo({
-        url: '../chooseLib/chooseLib',
+        url: '../chooseLib/chooseLib'
       })
       return
     }

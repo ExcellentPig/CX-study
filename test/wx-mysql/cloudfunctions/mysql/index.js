@@ -10,13 +10,12 @@ cloud.init()
 exports.main = async (event, context) => {
 	try {
 		const conncetion = await mysql.createConnection({
-			host: 'localhost',
+			host: '10.10.10.246',
 			database: 'nodemysql',
 			user: 'root',
-			password: 'root',
-			port: 3306
+			password: 'root'
 		})
-		const [rows, fields] = await conncetion.execute('SELECT * FORM nideshop_product')
+		const [rows, fields] = await conncetion.execute('SELECT version();')
 		return rows
 	} catch (err) {
 		console.log('error: ', err)
