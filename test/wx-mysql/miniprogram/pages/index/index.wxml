@@ -61,5 +61,12 @@
    </button>
   </view>
 
-
+<van-goods-action>
+  <van-goods-action-icon icon="comment-o" text="社区" />
+  <van-goods-action-icon wx:if="{{isShowStar}}" icon="star-o" text="收藏" bind:click="addStar" />
+  <van-goods-action-icon wx:else class="star-o" icon="star-o" text="已收藏" bind:click="addStar" />
+  <van-goods-action-icon icon="cart-o" text="购物车" info="5" />
+  <van-goods-action-button color="#be99ff" text="加入购物车" type="warning" />
+  <van-goods-action-button color="#7232dd" text="立即购买" />
+</van-goods-action>
 </view>

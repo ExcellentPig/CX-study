@@ -6,7 +6,9 @@ page {
   flex-direction: column;
   justify-content: flex-start;
 }
-
+.star-o van-icon {
+	color: red;
+}
 .userinfo, .uploader, .tunnel {
   margin-top: 40rpx;
   height: 140rpx;

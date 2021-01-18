@@ -1,0 +1,8 @@
+<view class="loading">
+  <test-component></test-component>
+  <view class="dot" animation="{{alpha[0]}}"></view>
+  <view class="dot" animation="{{alpha[1]}}"></view>
+  <view class="dot" animation="{{alpha[2]}}"></view>
+  <view class="dot" animation="{{alpha[3]}}"></view>
+  <view class="dot" animation="{{alpha[4]}}"></view>
+</view>

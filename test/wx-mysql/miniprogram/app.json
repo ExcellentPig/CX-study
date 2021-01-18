@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/loading1/loading1",
+    "pages/index1/index1",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -21,6 +23,21 @@
     "navigationBarTitleText": "云开发 QuickStart",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "tabBar": {
+    "color": "#666",
+    "backgroundColor": "#fafafa",
+    "selectedColor": "#b4282d",
+    "borderStyle": "white",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/index1/index1",
+        "text": "专题"
+      }
+    ],
+    "position": "bottom"
+  },
+  "sitemapLocation": "sitemap.json"
 }

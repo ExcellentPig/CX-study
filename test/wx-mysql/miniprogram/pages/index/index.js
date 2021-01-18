@@ -7,7 +7,8 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+	isShowStar: true
   },
   getMysql: function () {
 	console.log('click')
@@ -22,6 +23,37 @@ Page({
 	// 		console.log(res)
 	// 	}
 	// })
+  },
+  addStar: function () {
+	console.log(1) 
+	console.log(this.data.isShowStar)
+	if (this.data.isShowStar) {
+		wx.showToast({
+			title: '添加收藏成功',
+			icon: 'success',
+			mask: true,
+			duration: 1000,
+			success: () =>  {
+				console.log('success')
+				this.setData({
+					isShowStar: false
+				})
+				console.log(this.data.isShowStar)
+			}
+		})
+	} else {
+		wx.showToast({
+			title: '取消收藏成功',
+			icon: 'success',
+			mask: true,
+			duration: 1000,
+			success: () =>  {
+				this.setData({
+					isShowStar: true
+				})
+			}
+		})
+	}
   },
   onLoad: function() {
     if (!wx.cloud) {

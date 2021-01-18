@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+	  "test-component": "/components/testComponent/test"
+  },
+  "backgroundTextStyle": "light",
+  "navigationBarTitleText": "loading页面",
+  "navigationBarBackgroundColor": "#752ad9",
+  "navigationBarTextStyle": "white"
+}
