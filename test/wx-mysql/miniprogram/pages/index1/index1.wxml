@@ -1,4 +1,5 @@
 <view class="loading">
+  <view bindtap="goToMappage">{{ cityName }}</view>
   <test-component></test-component>
   <view class="dot" animation="{{alpha[0]}}"></view>
   <view class="dot" animation="{{alpha[1]}}"></view>

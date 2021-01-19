@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+	  "van-search": "@vant/weapp/search/index"
+  },
+  "backgroundTextStyle": "light",
+  "navigationBarTitleText": "地图",
+  "navigationBarBackgroundColor": "#752ad9",
+  "navigationBarTextStyle": "white"
+}

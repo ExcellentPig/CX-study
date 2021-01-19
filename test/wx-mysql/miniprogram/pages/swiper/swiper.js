@@ -1,25 +1,38 @@
-// pages/loading1/loading1.js
-let timer = null
+const db = wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+	  imgList: [],
+	  phone: '10086'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-	  timer = setTimeout(() => {
-		  wx.switchTab({
-			  url: '/pages/index/index'
-		  })
-	  }, 4000)
+	  this.getSwiper()
   },
-
+  
+  getSwiper () {
+	  db.collection('swiper').get().then(res => {
+		  console.log(res)
+		  this.setData({
+			  imgList: res.data
+		  })
+	  })
+  },
+  callPhone () {
+  	wx.makePhoneCall({
+  		phoneNumber: this.data.phone,
+  		success(res) {
+  			console.log(res)
+  		}
+  	})
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -31,22 +44,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+	  
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-	  console.log('loading timer',timer)
-	  timer = null
-	  console.log('loading timer',timer)
+
   },
 
   /**

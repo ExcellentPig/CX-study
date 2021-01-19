@@ -1,0 +1,54 @@
+<view>
+	<van-search
+	  value="{{ value }}"
+	  placeholder="请输入搜索关键词"
+	  show-action
+	  bind:change="onSearch"
+	  bind:cancel="onCancel"
+	/>
+	<scroll-view
+	 scroll-y="true" 
+	 class="addcount1" 
+	 style="height: 500rpx;z-index:{{zIndex}}">
+	  <view
+	   class="result1"
+	   wx:for="{{ tips }}"
+	   wx:key="index"
+	   bindtap="modifyName"
+	   data-name="{{item.name}}"
+	   >
+	    {{ item.name }} -- {{ index }}
+	  </view>
+	</scroll-view>
+	<view class="map_container">
+	  <map
+	    class="map"
+	    id="map"
+	    scale="16"
+	    longitude="{{ longitude }}"
+	    latitude="{{ latitude }}"
+	    markers="{{ markers }}"
+		show-compass="true"
+		show-scale="true" 
+	    >
+		<cover-image
+		class="point"
+		src="https://images2018.cnblogs.com/blog/1060535/201808/1060535-20180830225238112-1707237786.png"
+		bindtap="moveTolocation">回到原位</cover-image>
+		</map>
+	</view>
+	<scroll-view
+	 scroll-y="true" 
+	 class="addcount" 
+	 style="height: 600rpx">
+	  <view
+	   class="result"
+	   wx:for="{{ pois }}"
+	   wx:key="index"
+	   bindtap="modifyName"
+	   data-name="{{item.name}}"
+	   >
+	    {{ item.name }}
+	  </view>
+	</scroll-view>
+</view>

@@ -1,6 +1,9 @@
+import { get } from '../../utils/request.js'
 Page({
   data: {
-    alpha: [1, 1, 1, 1, 1]
+    alpha: [1, 1, 1, 1, 1],
+	cityName: '',
+	datalist: []
   },
   onLoad: function () {
     var self = this;
@@ -19,5 +22,24 @@ Page({
       })
       _index = _index == 4 ? 0 : _index + 1;
     }, _speed);
+	
+	this.getData()
+	
+  },
+  onShow: function () {
+	   const cityName = wx.getStorageSync('cityName')
+	   this.setData({
+	  		  cityName: cityName || '定位中...'
+	   })
+	   console.log(cityName)
+  },
+  goToMappage () {
+	  wx.navigateTo({
+		  url: '/pages/mappage/mappage'
+	  })
+  },
+  async getData () {
+	  const data = await get('/index/index')
+	  console.log(data)
   }
 })

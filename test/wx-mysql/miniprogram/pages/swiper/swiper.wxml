@@ -1,0 +1,20 @@
+<view>
+	<swiper
+	indicator-dots="true" 
+	autoplay="true"
+	interval="2000"
+	duration="1000"
+	style="height: 400rpx;"
+	>
+		<block wx:for="{{ imgList }}" wx:key="index">
+			<swiper-item>
+				<image 
+				  src="{{ item.fileid }}"  
+				  class="img"
+				  mode="aspectFix"
+				 ></image>
+			</swiper-item>
+		</block>
+	</swiper>
+	<view bindtap="callPhone">电话： {{ phone }}</view>
+</view>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>test6</title>
+		<style>
+			#box {
+				width: 200px;
+				height: 200px;
+				border: 10px solid #000000;
+				border-radius: 50%;
+				box-shadow: 0px 0px 50px #000000;
+				margin: 200px auto;
+				transition: all 2s ease;
+			}
+			#box:hover {
+				transform: scale(1.2);
+				/* animation: ball 2s ease; */
+			}
+			@keyframes ball{
+				0% {
+					transform: scale(1);
+				}
+				50% {
+					transform: scale(1.2);
+				}
+				100% {
+					transform: scale(1);
+				}
+			}
+			/*
+				transition  过渡
+				animation 	动画
+				transform  	变形
+			*/
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>
