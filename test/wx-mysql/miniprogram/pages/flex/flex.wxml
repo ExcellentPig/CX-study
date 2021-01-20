@@ -1,0 +1,8 @@
+<view class='case-page'>
+  <view class='list-masonry'>
+    <view class='item-masonry' wx:for="{{note}}" wx:key="index">
+      <image src='{{item.url}}' mode='widthFix'></image>
+      <text>{{item.title}}</text>
+    </view>
+  </view>
+</view>

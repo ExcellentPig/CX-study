@@ -1,0 +1,23 @@
+page{
+  background-color: #eee;
+}
+.case-page{
+  padding:20rpx;
+}
+.list-masonry{
+  column-count: 2;
+  column-gap: 20rpx;
+}
+.item-masonry{
+  background-color: #fff;
+  break-inside: avoid; 
+  box-sizing: border-box; 
+  padding: 20rpx;
+  margin: 40rpx 0;
+}
+.item-masonry:nth-child(1) {
+	margin: 0;
+}
+.item-masonry image {
+  width: 100%;
+}

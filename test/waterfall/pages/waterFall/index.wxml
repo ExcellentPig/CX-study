@@ -1,0 +1,11 @@
+<!--pages/waterfall/index.wxml-->
+<scroll-view class="photo-list" scroll-y="{{true}}" style="height:100vh"
+            bindscrolltolower="lowrefresh" bindscroll="scrollevent">
+    <view class="photos-wrap">
+        <view wx:for="{{photos}}" wx:key="lastid" class="photo-item" style="top:{{item.top}}px;left:{{item.left}}px"
+            data-lastid="{{item.lastid}}" data-albumid="{{item.albumid}}">
+            <view class="photo-item-img" style="background-image:url({{item.img}});height:{{item.height}}px;"></view>
+        </view>
+        <view wx:if="{{photos.length}}" class="load-state"  style="top:{{loadingTop}}px"><view class="{{loadingstop ? 'nodata':'loading-upload' }}"></view><view class="loading-text">{{loadingstop ? '没有更多啦':'正在加载……'}}</view></view>
+    </view>
+</scroll-view >

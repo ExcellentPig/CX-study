@@ -11,7 +11,7 @@ page {
 	height: 10em;
 	border: 1px solid rgba(100,156,136,0.15);
 	border-radius: 50%;
-	box-shadow: 0 0 0.5em rgba(100,156,136,0.75);
+	box-shadow: 0 0 0.5em rgba(119, 31, 213,0.75);
 	transform: rotate(165deg);
 	animation: rotate 3s infinite;
 }
@@ -41,6 +41,20 @@ page {
 
 .loader::before {
 	animation: before 3s infinite;
+}
+
+.back {
+	width: 150rpx;
+	height: 50rpx;
+	background: #752ad9;
+	border-radius: 30rpx;
+	opacity: .5;
+	color: #fff;
+	font-size: 24rpx;
+	text-align: center;
+	line-height: 50rpx;
+	float: right;
+	margin: 30rpx 20rpx 0 0 ;
 }
 
 @keyframes before {

@@ -1,0 +1,150 @@
+/* pages/waterfall/index.wxss */
+.numbers-list{
+    white-space: nowrap;
+    width: 570rpx;
+    overflow-x: hidden;
+    height: 150rpx;
+    font-size: 0;
+    padding-left: 57rpx;
+    padding-top: 38rpx;
+    padding-bottom: 31rpx;
+    box-sizing: border-box;
+    position: relative;
+    background: #fff;
+    z-index:0;
+}
+.list-item{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    border-radius: 100%;
+    text-align: center;
+    width: 80rpx;
+    height: 80rpx;
+}
+.list-item .img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.list-title{
+    background-color: #00aeff;
+    line-height: 80rpx;
+    color: #fff;
+    font-size: 12px;
+}
+.list-last{
+    color: #00aeff;
+    font-size: 10px;
+    line-height: 80rpx;
+}
+.numbers-item{
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+    border: 3rpx solid #fff;
+    border-radius: 100%;
+}
+.album-update-info{
+    color: #b1b1b1;
+    font-size: 12px;
+    margin-top: 12rpx;
+    padding-left: 57rpx;
+}
+/*瀑布流*/
+.photo-item{
+    width: 45%;
+    display: inline-block;
+    position: absolute;
+}
+.photo-item-img{
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+.load-state{
+    position: absolute;
+    bottom:0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color:#333;
+    line-height: 15px;
+    height: 15px;
+}
+.album-info-title{
+    font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 300rpx;
+    display: inline-block;
+}
+.total-numbers{
+    vertical-align: baseline;
+    font-size: 16rpx;
+    display: inline;
+}
+.album-info-ctime{
+    font-size: 12px;
+    margin-top: 16rpx;
+    color: #9b9b9b;
+}
+.album-info-wrap{
+    padding: 48rpx 60rpx 0;
+    overflow: hidden;
+}
+.photos-wrap{
+    position: relative;
+    margin-top: 40rpx;
+}
+.loading-text{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20rpx;
+}
+.add-photo{
+    background-color: #00aeff;
+    height: 98rpx;
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    color: #fff;
+    line-height: 98rpx;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+	transition: transform 0.3s ease;
+	-webkit-transition: transform 0.3s ease;
+}
+.add-photo-icon{
+    display: inline-block;
+    margin-left: 15rpx;
+    width: 31rpx;
+    height: 31rpx;
+    background-position: -76rpx -110rpx;
+}
+
+.noheight{
+	transform: translateY(100%);
+	-webkit-transform: translateY(100%);
+}
+.aotoheight{
+	transform: translateY(0);
+	-webkit-transform: translateY(0);
+}
+.no-album{
+	width:437rpx;
+	height:364rpx;
+	margin:200rpx auto 58rpx;
+	display: block;
+}
+.no-album-arrow{
+	width:26rpx;
+	height:160rpx;
+	margin:100rpx auto;
+	display: block;
+}
+.arrow-text{
+	font-size: 12px;
+	color:rgb(17 ,120 ,183);
+	text-align: center;
+	line-height: 1.5
+}

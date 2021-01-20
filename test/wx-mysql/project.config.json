@@ -42,6 +42,7 @@
   "libVersion": "2.14.1",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "plugin": {
       "list": []
@@ -81,6 +82,13 @@
         {
           "name": "pages/blog/blog",
           "pathName": "pages/blog/blog",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/flex/flex",
+          "pathName": "pages/flex/flex",
+          "query": "",
           "scene": null
         }
       ]

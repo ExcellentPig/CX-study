@@ -1,9 +1,10 @@
 {
   "usingComponents": {
+	  "van-image": "@vant/weapp/image/index",
 	  "van-swipe-cell": "@vant/weapp/swipe-cell/index"
   },
   "backgroundTextStyle": "light",
-  "navigationBarTitleText": "博客",
+  "navigationBarTitleText": "瀑布流布局",
   "navigationBarBackgroundColor": "#752ad9",
   "navigationBarTextStyle": "white"
 }

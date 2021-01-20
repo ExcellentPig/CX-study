@@ -22,3 +22,12 @@ page{
   margin: 0 10rpx;
   opacity: 0;
 }
+
+.city {
+	width: 128rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin: 0 auto;
+	font-size: 24rpx;
+}

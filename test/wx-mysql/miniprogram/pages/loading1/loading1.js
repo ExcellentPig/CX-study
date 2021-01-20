@@ -1,12 +1,13 @@
 // pages/loading1/loading1.js
 let timer = null
+let timer1 = null
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+	  second: 6
   },
 
   /**
@@ -17,9 +18,22 @@ Page({
 		  wx.switchTab({
 			  url: '/pages/index/index'
 		  })
-	  }, 4000)
+	  }, 7000)
+	  this.back()
   },
-
+  back () {
+	  timer1 = setInterval(() => {
+		  let a = this.data.second - 1
+		  this.setData({
+			  second: a
+		  })
+		  if (a < 0) {
+			  this.setData({
+				second: 0
+			  })
+		  }
+	  }, 1000)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -38,6 +52,10 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+	  clearTimeout(timer)
+	  timer = null
+	  clearInterval(timer11)
+	  timer1 = null
   },
 
   /**
@@ -45,8 +63,13 @@ Page({
    */
   onUnload: function () {
 	  console.log('loading timer',timer)
+	  clearTimeout(timer)
 	  timer = null
 	  console.log('loading timer',timer)
+	  console.log('loading timer1',timer1)
+	  clearInterval(timer1)
+	  timer1 = null
+	  console.log('loading timer1',timer1)
   },
 
   /**

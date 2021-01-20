@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-	  cityName: '北京',
 	  tips: [],
 	  longitude: 0,
 	  latitude: 0,
@@ -18,8 +17,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-	  console.log(this.data.cityName)
-	  wx.setStorageSync('cityName', this.data.cityName)
+	  let cityName = wx.getStorageSync('cityName')
+	  wx.setStorageSync('cityName', cityName)
 	  // console.log(amapFile)
 	  console.log(this.data.tips)
   },

@@ -17,7 +17,8 @@
     "pages/im/room/room",
     "pages/mappage/mappage",
     "pages/swiper/swiper",
-    "pages/blog/blog"
+    "pages/blog/blog",
+    "pages/flex/flex"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -29,7 +30,7 @@
   "tabBar": {
     "color": "#666",
     "backgroundColor": "#fafafa",
-    "selectedColor": "#b4282d",
+    "selectedColor": "#752ad9",
     "borderStyle": "white",
     "list": [{
         "pagePath": "pages/index/index",
@@ -46,6 +47,10 @@
 	  {
 	    "pagePath": "pages/blog/blog",
 	    "text": "博客"
+	  },
+	  {
+	    "pagePath": "pages/flex/flex",
+	    "text": "布局"
 	  }
     ],
     "position": "bottom"

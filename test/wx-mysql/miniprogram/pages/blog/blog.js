@@ -1,4 +1,4 @@
-// pages/blog/blog.js
+let keyword = ''
 Page({
 
   /**
@@ -12,21 +12,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+	  this._loadBlogList()
+	  console.log(1)
   },
-
+  
+  _loadBlogList (start = 0) {
+	wx.cloud.callFunction({
+		name: 'blog1',
+		data: {
+			keyword,
+			start,
+			count: 10,
+			$url: 'list'
+		}
+	}).then(res => {
+		console.log(res)
+	})
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+	  console.log(2)
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+	  console.log(3)
   },
 
   /**
