@@ -39,7 +39,7 @@
   },
   "appid": "wx47e3d301cb86fab1",
   "projectname": "wx-mysql",
-  "libVersion": "2.14.1",
+  "libVersion": "2.14.4",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",

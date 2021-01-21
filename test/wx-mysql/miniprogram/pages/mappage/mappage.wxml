@@ -34,7 +34,7 @@
 		<cover-image
 		class="point"
 		src="https://images2018.cnblogs.com/blog/1060535/201808/1060535-20180830225238112-1707237786.png"
-		bindtap="moveTolocation">回到原位</cover-image>
+		bindtap="moveTolocation"></cover-image>
 		</map>
 	</view>
 	<scroll-view
