@@ -1,4 +1,5 @@
 import amapFile from '../../utils/amap-wx.js'
+let timer = null
 Page({
 
   /**
@@ -53,8 +54,6 @@ Page({
 	  //     }
 	  //   }
 	  // })
-	  
-	  let timer = null
 	  if (timer) {
 		  clearTimeout(timer)
 	  }
@@ -156,14 +155,16 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+	  clearTimeout(timer)
+	  timer = null
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+	  clearTimeout(timer)
+	  timer = null
   },
 
   /**

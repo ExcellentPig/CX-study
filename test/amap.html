@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=5d96e687e8f74c23a2335d70be795968"></script>
+		<style>
+			#container {
+				width: 1200px;
+				height: 1200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<script>
+			    var map = new AMap.Map('container');
+				var map = new AMap.Map('container', {
+				        zoom:11,//级别
+				        center: [116.397428, 39.90923],//中心点坐标
+				        viewMode:'3D'//使用3D视图
+				    });
+				
+				  // var map = new AMap.Map('container', {
+				  //       center: [116.397428, 39.90923],
+				  //       layers: [//使用多个图层
+				  //           new AMap.TileLayer.Satellite(),
+				  //           new AMap.TileLayer.RoadNet()
+				  //       ],
+				  //       zooms: [4,18],//设置地图级别范围
+				  //       zoom: 13
+				  //   });
+		</script>
+	</body>
+</html>
