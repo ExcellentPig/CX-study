@@ -1,6 +1,19 @@
 .addcount {
 	background: #fff;
 }
+.header {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 5rpx;
+	align-items: center;
+}
+.header .location {
+	font-size: 28rpx;
+	padding: 0 8rpx;
+}
+.header .search {
+	flex: 2;
+}
 .addcount1 {
 	background: #fff;
 	position: absolute;

@@ -1,4 +1,5 @@
 <view>
-	<view class="loader"></view>
+	<!-- <view class="loader"></view> -->
+	<image class="bg" src="../../images/bg.png"></image>
 	<view class="back">剩余: {{ second }}s</view>
 </view>

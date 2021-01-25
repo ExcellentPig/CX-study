@@ -1,6 +1,7 @@
 // 1、删除数组的重复项
 var fruits = ['banana', 'apple', 'orange', 'watermelon', 'apple', 'orange', 'grape', 'apple']
 // 第一种方式
+// Array.from() 方法就是将一个类数组对象或者可遍历对象转换成一个真正的数组
 var uniqueFruits = Array.from(new Set(fruits))
 console.log(uniqueFruits)
 // 第二种

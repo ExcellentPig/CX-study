@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<script>
+		// 获取一个随机布尔值
+		// Math.random() 0~1之间创建一个随机数
+		const randomBoolean = () => Math.random() >= 0.5
+		console.log(randomBoolean())
+		
+		// 检查是否是工作日
+		const isWeekday = date => date.getDay() % 6 !== 0
+		console.log(isWeekday(new Date(2021, 0, 25))) // 月份从0开始
+		
+		// 反转字符串
+		const reverse = str => str.split('').reverse().join('')
+		console.log(reverse('hello world'))
+		
+		// 检查当前Tab页是否在前台
+		const isBrowserTabInView = () => document.hidden
+		console.log(isBrowserTabInView())
+		
+		// 检查数字是否为奇数
+		const isEven = num => num % 2 === 0
+		console.log(isEven(2))
+		console.log(isEven(3))
+		
+		// 从日期中获取时间
+		// toTimeString() 在正确的位置对字符串进行切片
+		const timeFromDate = date => date.toTimeString().slice(0, 8)
+		console.log(timeFromDate(new Date(2021, 0, 10, 17, 30, 0)))
+		console.log(timeFromDate(new Date()))
+		
+		// 保留小数点
+		// ~~ 两个 表示去整数部分
+		// Math.pow() 可以将一个数字截断到某个小数点
+		const toFixed = (n, fixed) => ~~(Math.pow(10, fixed) * n) / Math.pow(10, fixed)
+		console.log(toFixed(25.198726354, 1));
+		
+		// 检查元素当前是否为聚焦状态
+		// document.activeElement 属性检查一个元素当前是否处于聚焦状态
+		const elementIsInFocus = el => el === document.activeElement()
+		// elementIsInFocus(anyElement)
+		
+		// 检查浏览器是否支持触摸事件
+		const touchSupported = () => {
+		  ('ontouchstart' in window || window.DocumentTouch && document instanceof window.DocumentTouch);
+		}
+		console.log(touchSupported());
+		
+		// 检查当前用户是否为苹果设备
+		const isAppleDevice = /Mac|iPod|iPhone|iPad/.test(navigator.platform)
+		console.log(isAppleDevice)
+		
+		// 滚动到页面顶部
+		const goToTop = () => window.scrollTo(0, 0);
+		// goToTop()
+		
+		// 获取所有参数平均值
+		const average = (...args) => args.reduce((a, b) => a + b) / args.length
+		console.log(average(1, 2, 3, 4))
+		
+		// 转为华氏度\摄氏度
+		const celsiusToFahrenheit = celsius => celsius * 9 / 5 + 32
+		const fahrenheitToCelsius = fahrenheit => (fahrenheit - 32) * 5 / 9
+		console.log(celsiusToFahrenheit(15));
+		console.log(fahrenheitToCelsius(59));
+		
+	</script>
+</body>
+</html>
