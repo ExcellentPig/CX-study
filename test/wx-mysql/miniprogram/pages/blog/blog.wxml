@@ -6,3 +6,14 @@
   <view slot="right">删除</view>
 </van-swipe-cell> -->
 
+<view>
+	<to-top 
+	  floorstatus="{{ floorstatus }}" 
+	  className="{{ className }}"
+	  bind:searchHandler="searchHandler"
+	  ></to-top>
+	  <!-- 打开外部链接需要添加web-view 但是微信小程序暂不支持个人使用 -->
+	  <!-- <web-view src="http://baidu.com"></web-view> -->
+	 <image src="../../images/scode.png" bindtap="scancode"></image>
+</view>
+

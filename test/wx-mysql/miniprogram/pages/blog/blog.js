@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+	  floorstatus: true,
+	  className: 'search1',
+	  webUrl: ''
   },
 
   /**
@@ -30,6 +32,29 @@ Page({
 	})
   },
   
+  searchHandler(e) {
+	  console.log(e.detail)
+  },
+  scancode () {
+	console.log(1)
+	wx.scanCode({
+	  success(res) {
+		  //console.log('111',res)
+		 wx.showModal({
+		   title: '提示',
+		   content: '扫描成功,但是微信小程序暂不支持个人类型小程序开启此功能',
+		   success (res) {
+		     if (res.confirm) {
+		       console.log('用户点击确定')
+		     } else if (res.cancel) {
+		       console.log('用户点击取消')
+		     }
+		   }
+		 })
+
+	  }
+	})  
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -71,7 +96,18 @@ Page({
   onReachBottom: function () {
 
   },
-
+  onPageScroll (e) {
+  	// console.log(e, 1111)  
+	if (e.scrollTop > 100) {
+	      this.setData({
+	        floorstatus: false
+	      });
+	    } else {
+	      this.setData({
+	        floorstatus: true
+	      });
+	}
+  },
   /**
    * 用户点击右上角分享
    */

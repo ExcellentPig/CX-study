@@ -1,6 +1,7 @@
 // pages/loading1/loading1.js
-let timer = null
-let timer1 = null
+// let timer = null
+// let timer1 = null
+import  { msetTimeOut, mclearTimeOut, msetInterval, mclearInterval } from '../../utils/time.js'
 Page({
 
   /**
@@ -14,25 +15,43 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-	  timer = setTimeout(() => {
-		  wx.switchTab({
-			  url: '/pages/index/index'
-		  })
-	  }, 7000)
+	  // timer = setTimeout(() => {
+		 //  wx.switchTab({
+			//   url: '/pages/index/index'
+		 //  })
+	  // }, 7000)
+	  msetTimeOut(this.goToIndex, 7000)
 	  this.back()
   },
+  goToIndex () {
+	  wx.switchTab({
+	  			  url: '/pages/index/index'
+	  })
+  },
   back () {
-	  timer1 = setInterval(() => {
-		  let a = this.data.second - 1
+	  // timer1 = setInterval(() => {
+		 //  let a = this.data.second - 1
+		 //  this.setData({
+			//   second: a
+		 //  })
+		 //  if (a < 0) {
+			//   this.setData({
+			// 	second: 0
+			//   })
+		 //  }
+	  // }, 1000)
+	  msetInterval(this.backTime, 1000)
+  },
+  backTime () {
+	  let a = this.data.second - 1
+	  this.setData({
+	  			  second: a
+	  })
+	  if (a < 0) {
 		  this.setData({
-			  second: a
-		  })
-		  if (a < 0) {
-			  this.setData({
-				second: 0
-			  })
-		  }
-	  }, 1000)
+			second: 0
+	  	})
+	  }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -52,24 +71,26 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-	  clearTimeout(timer)
-	  timer = null
-	  clearInterval(timer11)
-	  timer1 = null
+	  // clearTimeout(timer)
+	  // timer = null
+	  // clearInterval(timer11)
+	  // timer1 = null
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-	  console.log('loading timer',timer)
-	  clearTimeout(timer)
-	  timer = null
-	  console.log('loading timer',timer)
-	  console.log('loading timer1',timer1)
-	  clearInterval(timer1)
-	  timer1 = null
-	  console.log('loading timer1',timer1)
+	  // console.log('loading timer',timer)
+	  // clearTimeout(timer)
+	  // timer = null
+	  // console.log('loading timer',timer)
+	  // console.log('loading timer1',timer1)
+	  // clearInterval(timer1)
+	  // timer1 = null
+	  // console.log('loading timer1',timer1)
+	  mclearTimeOut()
+	  mclearInterval()
   },
 
   /**

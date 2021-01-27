@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-	  "van-swipe-cell": "@vant/weapp/swipe-cell/index"
+	  "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+	  "to-top": "/components/toTop/toTop",
+	  "van-search": "@vant/weapp/search/index"
   },
   "backgroundTextStyle": "light",
   "navigationBarTitleText": "博客",

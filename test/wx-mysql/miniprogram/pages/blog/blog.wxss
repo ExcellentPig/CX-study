@@ -9,3 +9,7 @@
   text-align: center;
   background-color: #f44;
 }
+
+page {
+	height: 1200px;
+}

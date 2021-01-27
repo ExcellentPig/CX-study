@@ -1,0 +1,17 @@
+.goTop{
+  height: 70rpx;
+  width: 70rpx;
+  position: fixed;
+  bottom: 50rpx;
+  right: 30rpx;
+}
+
+.search, .search1 {
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.search1 .van-search {
+	background-color: #000 !important;
+	opacity: .8;
+}
