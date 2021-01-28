@@ -17,7 +17,7 @@
 	所有本质上来说JS中的异步还是同步行为
 	
 	不同的任务源会被分配到不同的Task队列中，任务源可以分为微任务(microtask)和宏任务(macrotask)
-	在ES6规范中，microtsk称为jobs,macrotask称为task
+	在ES6规范中，microtask称为jobs,macrotask称为task
 */
 
 /*

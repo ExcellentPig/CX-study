@@ -194,7 +194,7 @@ class Dep {
 	// 添加依赖
 	addSub(sub) {
 		this.subs.push(sub)
-	},
+	}
 	// 更新
 	notify () {
 		this.subs.forEach(sub => {
@@ -217,7 +217,7 @@ class Wathcer {
 		this.key = key
 		this.value = obj[key]
 		Dep.target = null
-	},
+	}
 	update () {
 		// 获取新值
 		this.value = this.obj[this.key]
