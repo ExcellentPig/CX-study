@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/*
+			当父元素不给高度的时候，内部元素不浮动时会撑开，而浮动的时候，父元素变成一条线
+			*/
+			.box {
+				width: 600px;
+				border: 1px solid red;
+			}
+			.big {
+				width: 400px;
+				height: 400px;
+				background-color: darkcyan;
+				float: left;
+			}
+			.small {
+				width: 200px;
+				height: 200px;
+				background: darkgray;
+				float: left;
+			}
+			.box2 {
+				height: 300px;
+				background: darkmagenta;
+			}
+			
+			/*
+			额外标签发
+				在最后一个浮动标签后添加一个新标签
+				缺点：添加无意义标签，语义化差
+			*/
+			/* 
+			.clear {
+				clear: both;
+			}
+			 */
+			
+			/*
+			父容器添加overflow属性
+				触发BFC，实现清除浮动
+				缺点：内容超出的会被隐藏
+			*/
+		   /* .box {
+			   overflow: hidden;
+		   } */
+		   
+		   /*
+		   使用after伪类清除浮动
+			缺点：ie6~7不支持伪元素，需要使用zoom:1 触发hasLayout
+			ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行
+		   */
+		  /* .clearfix::after {
+			  content: "";
+			  display: block;
+			  height: 0;
+			  clear: both;
+			  visibility: hidden;
+		  }
+		  .clearfix {
+			  *zoom: 1; 
+		  } */
+			
+		 /*
+		 使用before和after双伪类元素清除浮动
+			代码更简洁 但是也需要使用zoom:1 触发hasLayout
+		 */
+		.clearfix::after,
+		.clear::before {
+			content: "";
+			display: table;
+		}
+		.clearfix::after {
+			clear: both;
+		}
+		.clearfix {
+			*zoom: 1
+		}
+		</style>
+	</head>
+	<body>
+		<div class="box clearfix">
+			<div class="big"></div>
+			<div class="small"></div>
+			<!-- <div class="clear"></div> -->
+		</div>
+		<div class="box2"></div>
+	</body>
+</html>
